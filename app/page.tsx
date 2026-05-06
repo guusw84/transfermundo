@@ -29,21 +29,21 @@ export default function HomePage() {
           <span className="text-xl font-bold tracking-tight">
             Transfer<span className="text-blue-300">Mundo</span>
           </span>
-          <span className="text-blue-200 text-sm hidden sm:block">Airport transport made simple</span>
+          <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
         </div>
       </nav>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center">
         <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
-          Your airport transport guide
+          Your airport arrival guide
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
-          Get from airport to city — fast &amp; cheap
+          From the airport to the city - we'll guide you!
         </h1>
-        <p className="text-blue-200 text-lg max-w-lg mb-10">
-          Compare every transport option: train, bus, metro, taxi and rental car.
-          No booking fees. Just the facts.
+        <p className="text-blue-200 text-lg max-w-xl mb-10">
+          How to reach the city centre? Everything you need to know about public transport, bus services,
+          taxi, car rental and more at your destination airport. Explore the options and book!
         </p>
 
         {/* Search */}
@@ -94,7 +94,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="mt-auto bg-slate-800 text-slate-400 text-center py-8 text-sm">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p>© {new Date().getFullYear()} · Airport transport made simple</p>
+        <p>© {new Date().getFullYear()} · Get ready now!</p>
       </footer>
     </div>
   )
