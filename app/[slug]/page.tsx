@@ -114,7 +114,7 @@ export default async function AirportPage({ params }: Props) {
           <Link href="/" className="text-xl font-bold tracking-tight hover:opacity-90 transition">
             Transfer<span className="text-blue-300">Mundo</span>
           </Link>
-          <span className="text-blue-200 text-sm hidden sm:block">Airport transport made simple</span>
+          <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
         </div>
       </nav>
 
@@ -349,7 +349,7 @@ export default async function AirportPage({ params }: Props) {
                       </span>
                     </div>
                     <p className="font-bold text-slate-800 text-base">
-                      Pick up at: {airport.carRental.location}
+                      Car rental offices: {airport.carRental.location}
                     </p>
                     <p className="text-slate-500 text-sm mt-1">
                       From{' '}
@@ -434,7 +434,7 @@ export default async function AirportPage({ params }: Props) {
       {/* Footer */}
       <footer className="bg-slate-800 text-slate-400 text-center py-8 mt-6 text-sm">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p>© {new Date().getFullYear()} · Airport transport made simple</p>
+        <p>© {new Date().getFullYear()} · Get ready now!</p>
       </footer>
     </div>
   )
