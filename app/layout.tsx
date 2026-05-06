@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +28,14 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* GetYourGuide Analytics */}
+        <Script
+          src="https://widget.getyourguide.com/dist/pa.umd.production.min.js"
+          data-gyg-partner-id="UMC8YRL"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
