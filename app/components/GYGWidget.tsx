@@ -1,13 +1,19 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const PARTNER_ID = 'UMC8YRL'
 
 export default function GYGWidget({ city }: { city: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
     const container = containerRef.current
     if (!container) return
 
@@ -29,7 +35,9 @@ export default function GYGWidget({ city }: { city: string }) {
     if (gyg?.Activities?.init) {
       gyg.Activities.init()
     }
-  }, [city])
+  }, [city, mounted])
+
+  if (!mounted) return null
 
   return (
     <section className="max-w-5xl mx-auto px-4 pb-12">
