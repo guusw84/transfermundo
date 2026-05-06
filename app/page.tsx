@@ -34,22 +34,29 @@ export default function HomePage() {
       </nav>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center">
-        <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
+      <section
+        className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center overflow-hidden"
+        style={{ backgroundImage: "url('/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        {/* Dark overlay so text remains readable */}
+        <div className="absolute inset-0 bg-blue-900/70" aria-hidden="true" />
+        <p className="relative z-10 text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
           Your airport arrival guide
         </p>
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
+        <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
           From the airport to the city - we'll guide you!
         </h1>
-        <p className="text-blue-200 text-lg max-w-xl mb-10">
+        <p className="relative z-10 text-blue-200 text-lg max-w-xl mb-10">
           How to reach the city centre? Everything you need to know about public transport, bus services,
           taxi, car rental and more at your destination airport. Explore the options and book!
         </p>
 
         {/* Search */}
-        <AirportSearch />
+        <div className="relative z-10 w-full flex justify-center">
+          <AirportSearch />
+        </div>
 
-        <p className="text-blue-300 text-xs mt-4">
+        <p className="relative z-10 text-blue-300 text-xs mt-4">
           Currently covering {airports.length} airports in Europe
         </p>
       </section>
