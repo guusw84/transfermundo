@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import airportsData from '@/data/airports.json'
+import GYGWidget from '@/app/components/GYGWidget'
 
 interface TransportOption {
   type: string
@@ -24,6 +25,7 @@ interface Destination {
   transportOptionsCount: number
   fastest: { mode: string; time: string; price: string; link: string }
   cheapest: { mode: string; time: string; price: string; link: string }
+  gygQuery?: string
   taxi: { time: string; fare: string }
   transportOptions: TransportOption[]
 }
@@ -423,6 +425,11 @@ export default async function AirportPage({ params }: Props) {
           </div>
         </section>
       </main>
+
+      {/* GetYourGuide activities widget — only shown when supply exists for the destination */}
+      {airport.destinations[0]?.gygQuery && (
+        <GYGWidget city={airport.destinations[0].gygQuery} />
+      )}
 
       {/* Footer */}
       <footer className="bg-slate-800 text-slate-400 text-center py-8 mt-6 text-sm">

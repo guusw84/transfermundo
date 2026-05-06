@@ -27,6 +27,7 @@
     "destinations": [
       {
         "name": "Amsterdam",
+        "gygQuery": "Amsterdam",
         "cityCenter": "Dam Square",
         "distanceKm": 17,
         "distanceMiles": 10.6,
@@ -104,6 +105,7 @@
     "destinations": [
       {
         "name": "Berlin",
+        "gygQuery": "Berlin",
         "cityCenter": "Alexanderplatz",
         "distanceKm": 27,
         "distanceMiles": 16.8,
@@ -193,6 +195,7 @@
     "destinations": [
       {
         "name": "Madrid",
+        "gygQuery": "Madrid",
         "cityCenter": "Plaza Puerta del Sol",
         "distanceKm": 17,
         "distanceMiles": 10.6,
@@ -282,6 +285,7 @@
     "destinations": [
       {
         "name": "Paris",
+        "gygQuery": "Paris",
         "cityCenter": "Place de la Concorde",
         "distanceKm": 26,
         "distanceMiles": 16.2,
@@ -371,6 +375,7 @@
     "destinations": [
       {
         "name": "Rome",
+        "gygQuery": "Rome",
         "cityCenter": "Piazza Navona",
         "distanceKm": 30,
         "distanceMiles": 18.6,
