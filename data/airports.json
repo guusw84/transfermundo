@@ -1,0 +1,435 @@
+[
+  {
+    "slug": "amsterdam-airport-schiphol",
+    "name": "Amsterdam Airport Schiphol",
+    "iata": "AMS",
+    "icao": "EHAM",
+    "country": "Netherlands",
+    "continent": "Europe",
+    "address": "Evert van de Beekstraat 202, 1118 CP Schiphol, Netherlands",
+    "location": "southwest of Amsterdam",
+    "alsoKnownAs": "Amsterdam Airport and Schiphol Airport",
+    "terminals": "1",
+    "passengers2023": "61,887,628",
+    "operator": "Schiphol Group",
+    "goodToKnow": "In the Netherlands travelling with an OV-chipkaart is cheaper than buying single tickets. Check in and out with your debit card, credit card or mobile is another option (called OVpay).",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.9,
+    "googleReviews": "81.9K",
+    "carRental": {
+      "location": "Schiphol Plaza, near Arrivals 3",
+      "eur": 20,
+      "gbp": 17,
+      "usd": 22
+    },
+    "lastUpdate": "May 2024",
+    "destinations": [
+      {
+        "name": "Amsterdam",
+        "cityCenter": "Dam Square",
+        "distanceKm": 17,
+        "distanceMiles": 10.6,
+        "transportOptionsCount": 3,
+        "fastest": {
+          "mode": "Public transport Train",
+          "time": "16 minutes",
+          "price": "€4.90 per person",
+          "link": "https://www.ns.nl/en"
+        },
+        "cheapest": {
+          "mode": "Public transport Train",
+          "time": "16 minutes",
+          "price": "€4.90 per person",
+          "link": "https://www.ns.nl/en"
+        },
+        "taxi": {
+          "time": "25 minutes",
+          "fare": "66 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Train",
+            "boardingLocation": "Schiphol Airport train station, below Schiphol Plaza",
+            "serviceName": "Airport Sprinter",
+            "operator": "NS Nederlandse Spoorwegen",
+            "mainStations": "Amsterdam Lelylaan, Amsterdam Sloterdijk and Amsterdam Centraal",
+            "timetableLink": "https://www.ns.nl/en",
+            "travelTime": "16 minutes to Amsterdam Centraal railway station",
+            "frequency": "8 times per hour",
+            "priceAdult": "€4.90",
+            "priceChild": "€2.50"
+          },
+          {
+            "type": "Public transport Bus",
+            "boardingLocation": "Bus stop B17-B19 in front of the airport",
+            "serviceName": "Bus 397 (Amsterdam Airport Express)",
+            "operator": "Connexxion",
+            "mainStations": "Olympic Stadium, Concertgebouw, Museumplein and Leidseplein",
+            "timetableLink": "https://www.connexxion.nl/en/our-routes/special-routes/amsterdam-airport-express",
+            "travelTime": "35 minutes to Leidseplein (city centre)",
+            "frequency": "every 7.5 to 15 minutes",
+            "priceAdult": "€6.50",
+            "priceChild": "€1.00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "berlin-brandenburg-airport",
+    "name": "Berlin Brandenburg Airport",
+    "iata": "BER",
+    "icao": "EDDB",
+    "country": "Germany",
+    "continent": "Europe",
+    "address": "Melli-Beese-Ring 1, 12529 Schönefeld, Germany",
+    "location": "southeast of Berlin",
+    "alsoKnownAs": "Berlin Brandenburg Airport Willy Brandt",
+    "terminals": "2 (T1 and T2)",
+    "passengers2023": "23,071,865",
+    "operator": "",
+    "goodToKnow": "Berlin Ostkreuz, one of the biggest railway stations in Berlin, can be reached with the regional trains RB24 and RB32. Travel time is only 18 minutes, frequency is every 30 minutes.",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.1,
+    "googleReviews": "39.1K",
+    "carRental": {
+      "location": "Arrivals hall Terminal 1 (Ankunft 2, Ebene E0)",
+      "eur": 18,
+      "gbp": 15,
+      "usd": 20
+    },
+    "lastUpdate": "Mar 2026",
+    "destinations": [
+      {
+        "name": "Berlin",
+        "cityCenter": "Alexanderplatz",
+        "distanceKm": 27,
+        "distanceMiles": 16.8,
+        "transportOptionsCount": 4,
+        "fastest": {
+          "mode": "Public transport Train",
+          "time": "19 minutes",
+          "price": "€5.00 per person",
+          "link": "https://www.bahn.de/"
+        },
+        "cheapest": {
+          "mode": "Public transport Train",
+          "time": "19 minutes",
+          "price": "€5.00 per person",
+          "link": "https://www.bahn.de/"
+        },
+        "taxi": {
+          "time": "45 minutes",
+          "fare": "69 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Train",
+            "boardingLocation": "Bahnhof Flughafen BER, located under Terminal 1",
+            "serviceName": "FEX Flughafen-Express (and RE20)",
+            "operator": "Deutsche Bahn",
+            "mainStations": "Südkreuz, Potsdamer Platz and Berlin Hauptbahnhof",
+            "timetableLink": "https://www.bahn.de/",
+            "travelTime": "19 minutes to Potsdamer Platz (city centre)",
+            "frequency": "every 15 minutes",
+            "priceAdult": "€5.00",
+            "priceChild": "€3.50 (ages 6–14)"
+          },
+          {
+            "type": "Public transport S-Bahn",
+            "boardingLocation": "Bahnhof Flughafen BER, located under Terminal 1",
+            "serviceName": "S-Bahn S9",
+            "operator": "S-Bahn Berlin",
+            "mainStations": "Ostbahnhof, Alexanderplatz, Friedrichstraße, Berlin Hauptbahnhof, Messe Süd, Olympiastadion Berlin and Spandau",
+            "timetableLink": "https://sbahn.berlin/en/",
+            "travelTime": "43 minutes to Alexanderplatz (city centre)",
+            "frequency": "every 20 to 30 minutes",
+            "priceAdult": "€5.00",
+            "priceChild": "€3.50"
+          },
+          {
+            "type": "Public transport Bus + Metro",
+            "boardingLocation": "Flughafen BER bus stop in front of T1 Arrivals",
+            "serviceName": "Bus line X7/X71 + metro U7",
+            "operator": "BVG",
+            "mainStations": "Rudow, Neukölln, Kreuzberg and Möckernbrücke",
+            "timetableLink": "https://www.bvg.de/en/connections/route-overview",
+            "travelTime": "44 minutes to Möckernbrücke (south of city centre)",
+            "frequency": "every 10 minutes",
+            "priceAdult": "€5.00",
+            "priceChild": "€3.50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "madrid-barajas-airport",
+    "name": "Madrid Barajas Airport",
+    "iata": "MAD",
+    "icao": "LEMD",
+    "country": "Spain",
+    "continent": "Europe",
+    "address": "Avenida de la Hispanidad s/n, 28042 Madrid, Spain",
+    "location": "northeast of Madrid",
+    "alsoKnownAs": "Adolfo Suárez Madrid Barajas Airport and Madrid Airport",
+    "terminals": "5 (T1, T2, T3, T4 and T4S)",
+    "passengers2023": "60,220,984",
+    "operator": "Aena",
+    "goodToKnow": "The train is the most budget-friendly option for traveling to and from Madrid Barajas Airport, however the railway station is only accessible from Terminal 4.",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 4.1,
+    "googleReviews": "34.8K",
+    "carRental": {
+      "location": "Arrivals at Terminal 1 and Terminal 4",
+      "eur": 8,
+      "gbp": 7,
+      "usd": 9
+    },
+    "lastUpdate": "Feb 2024",
+    "destinations": [
+      {
+        "name": "Madrid",
+        "cityCenter": "Plaza Puerta del Sol",
+        "distanceKm": 17,
+        "distanceMiles": 10.6,
+        "transportOptionsCount": 4,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "25 minutes",
+          "price": "€33 flat fare",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=MAD"
+        },
+        "cheapest": {
+          "mode": "Public transport Train",
+          "time": "30 minutes",
+          "price": "€2.60 per person",
+          "link": "https://www.renfe.com/es/es/cercanias/cercanias-madrid/lineas"
+        },
+        "taxi": {
+          "time": "25 minutes",
+          "fare": "33 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Metro",
+            "boardingLocation": "Aeropuerto T1-T2-T3 metro station and Aeropuerto T4 metro station",
+            "serviceName": "Metro line 8 + metro line 10",
+            "operator": "Metro de Madrid",
+            "mainStations": "Nuevos Ministerios, Tribunal and Plaza de España",
+            "timetableLink": "https://www.metromadrid.es/en/linea/linea-8#line-timetable",
+            "travelTime": "30 minutes to Plaza de España (city centre)",
+            "frequency": "every 5 minutes",
+            "priceAdult": "€5.00",
+            "priceChild": "€5.00"
+          },
+          {
+            "type": "Public transport Train",
+            "boardingLocation": "Aeropuerto T4 railway station",
+            "serviceName": "Suburban train C-1/C-10",
+            "operator": "Renfe Cercanías Madrid",
+            "mainStations": "Chamartín, Nuevos Ministerios, Sol, Atocha and Príncipe Pío",
+            "timetableLink": "https://www.renfe.com/es/es/cercanias/cercanias-madrid/lineas",
+            "travelTime": "30 minutes to Sol (city centre)",
+            "frequency": "4 times per hour",
+            "priceAdult": "€2.60",
+            "priceChild": "€2.60"
+          },
+          {
+            "type": "Public transport Bus",
+            "boardingLocation": "Terminal 1, Terminal 2 and Terminal 4",
+            "serviceName": "Airport Express",
+            "operator": "EMT",
+            "mainStations": "O'Donnell, Plaza de Cibeles and Atocha",
+            "timetableLink": "https://www.emtmadrid.es/Aeropuerto?lang=en-GB",
+            "travelTime": "30 minutes to Plaza de Cibeles (city centre)",
+            "frequency": "every 15 to 20 minutes",
+            "priceAdult": "€5.00",
+            "priceChild": "€5.00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "paris-charles-de-gaulle-airport",
+    "name": "Paris Charles de Gaulle Airport",
+    "iata": "CDG",
+    "icao": "LFPG",
+    "country": "France",
+    "continent": "Europe",
+    "address": "95700 Roissy-en-France, France",
+    "location": "northeast of Paris",
+    "alsoKnownAs": "Charles de Gaulle Airport and Roissy Airport",
+    "terminals": "3 (T1, T2 and T3)",
+    "passengers2023": "67,421,316",
+    "operator": "Groupe ADP",
+    "goodToKnow": "",
+    "moneySavingTip": "If you have time and want to save money, take bus line 350 to Porte de la Chapelle followed by bus line 38 to Châtelet (city centre). It takes 1 hour and 45 minutes, but a Bus-Tram Ticket costs only €1.00 for adults and €1.00 for children aged 4–9.",
+    "appPublicTransport": "",
+    "googleScore": 3.6,
+    "googleReviews": "71.7K",
+    "carRental": {
+      "location": "Terminal 1 (Level 5) and Terminal 2 (Parking EF)",
+      "eur": 20,
+      "gbp": 17,
+      "usd": 22
+    },
+    "lastUpdate": "Mar 2025",
+    "destinations": [
+      {
+        "name": "Paris",
+        "cityCenter": "Place de la Concorde",
+        "distanceKm": 26,
+        "distanceMiles": 16.2,
+        "transportOptionsCount": 4,
+        "fastest": {
+          "mode": "Public transport Train (RER B)",
+          "time": "35 minutes",
+          "price": "€13 per person",
+          "link": "https://www.parisaeroport.fr/en/passengers/transport-parking/public-transport-paris/rer-b/cdg"
+        },
+        "cheapest": {
+          "mode": "Public transport Bus + Metro",
+          "time": "1 hour 25 minutes",
+          "price": "€4.50 per person",
+          "link": "https://www.ratp.fr/en/plans-lignes/busratp/350"
+        },
+        "taxi": {
+          "time": "45 minutes",
+          "fare": "65 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Train",
+            "boardingLocation": "Aéroport Charles de Gaulle 2 train station (T2) and Aéroport Charles de Gaulle train station (T1 and T3)",
+            "serviceName": "RER train line B",
+            "operator": "RER / RATP",
+            "mainStations": "Gare du Nord, Châtelet – Les Halles, Saint-Michel Notre-Dame and Denfert Rochereau",
+            "timetableLink": "https://www.parisaeroport.fr/en/passengers/transport-parking/public-transport-paris/rer-b/cdg",
+            "travelTime": "35 minutes to Châtelet – Les Halles (city centre)",
+            "frequency": "every 10 to 15 minutes",
+            "priceAdult": "€13.00",
+            "priceChild": "€6.50 (ages 4–9)"
+          },
+          {
+            "type": "Public transport Bus",
+            "boardingLocation": "Terminal 1, Terminal 3, Terminal 2BD, Terminal 2AC, Terminal 2EF, Terminal 2E and Terminal 2F",
+            "serviceName": "Roissybus",
+            "operator": "RATP",
+            "mainStations": "Opéra",
+            "timetableLink": "https://www.parisaeroport.fr/en/passengers/transport-parking/public-transport-paris/roissybus/cdg",
+            "travelTime": "60 minutes to Opéra (city centre)",
+            "frequency": "every 15 to 20 minutes",
+            "priceAdult": "€13.00",
+            "priceChild": "€6.50 (ages 4–9)"
+          },
+          {
+            "type": "Public transport Bus + Metro",
+            "boardingLocation": "Terminal 2, Terminal 3 / Roissypole and Terminal 1",
+            "serviceName": "Bus line 350 + metro line 12",
+            "operator": "RATP / Paris Métro",
+            "mainStations": "Porte de la Chapelle, Notre-Dame-de-Lorette and Concorde",
+            "timetableLink": "https://www.ratp.fr/en/plans-lignes/busratp/350",
+            "travelTime": "1 hour and 25 minutes to Concorde (city centre)",
+            "frequency": "every 15 to 35 minutes",
+            "priceAdult": "€4.50",
+            "priceChild": "€2.25 (ages 4–9)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "rome-fiumicino-airport",
+    "name": "Rome Fiumicino Airport",
+    "iata": "FCO",
+    "icao": "LIRF",
+    "country": "Italy",
+    "continent": "Europe",
+    "address": "Via dell'Aeroporto di Fiumicino 320, 00054 Fiumicino RM, Italy",
+    "location": "west of Rome",
+    "alsoKnownAs": "Leonardo da Vinci International Airport and Fiumicino Airport",
+    "terminals": "2 (T1 and T3)",
+    "passengers2023": "40,545,240",
+    "operator": "ADR Aeroporti di Roma",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 4.2,
+    "googleReviews": "49.2K",
+    "carRental": {
+      "location": "Airport Office Tower 2 close to terminals T1 and T3",
+      "eur": 16,
+      "gbp": 14,
+      "usd": 17
+    },
+    "lastUpdate": "Apr 2024",
+    "destinations": [
+      {
+        "name": "Rome",
+        "cityCenter": "Piazza Navona",
+        "distanceKm": 30,
+        "distanceMiles": 18.6,
+        "transportOptionsCount": 4,
+        "fastest": {
+          "mode": "Train – Leonardo Express",
+          "time": "32 minutes",
+          "price": "€14 per person",
+          "link": "https://www.trenitalia.com/en/services/fiumicino_airport.html"
+        },
+        "cheapest": {
+          "mode": "Bus service – Terravision",
+          "time": "55 minutes",
+          "price": "€6.50 per person",
+          "link": "https://www.terravision.eu/airport_transfer/bus-fiumicino-airport-rome/"
+        },
+        "taxi": {
+          "time": "40 minutes",
+          "fare": "55 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Train",
+            "boardingLocation": "Fiumicino Aeroporto railway station opposite T1 and T3",
+            "serviceName": "Leonardo Express",
+            "operator": "Trenitalia",
+            "mainStations": "Roma Termini",
+            "timetableLink": "https://www.trenitalia.com/en/services/fiumicino_airport.html",
+            "travelTime": "32 minutes to Roma Termini",
+            "frequency": "every 15 minutes",
+            "priceAdult": "€14.00",
+            "priceChild": "€14.00"
+          },
+          {
+            "type": "Public transport Train + Metro",
+            "boardingLocation": "Fiumicino Aeroporto railway station opposite T1 and T3",
+            "serviceName": "FL1 regional train + metro line B",
+            "operator": "Trenitalia / Metropolitana di Roma",
+            "mainStations": "Roma Trastevere, Roma Ostiense, Roma Tuscolana, Roma Tiburtina and Roma Termini",
+            "timetableLink": "https://www.trenitalia.com/en.html",
+            "travelTime": "45 minutes to Colosseo (city centre)",
+            "frequency": "every 15 minutes",
+            "priceAdult": "€9.50",
+            "priceChild": "€9.50"
+          },
+          {
+            "type": "Bus service",
+            "boardingLocation": "Terravision bus stop 14 in front of Terminal 3",
+            "serviceName": "Terravision",
+            "operator": "Terravision",
+            "mainStations": "Roma Termini",
+            "timetableLink": "https://www.terravision.eu/airport_transfer/bus-fiumicino-airport-rome/",
+            "travelTime": "55 minutes to Roma Termini",
+            "frequency": "every 30 minutes",
+            "priceAdult": "€6.50",
+            "priceChild": "€6.50"
+          }
+        ]
+      }
+    ]
+  }
+]

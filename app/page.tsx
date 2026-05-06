@@ -1,65 +1,101 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import AirportSearch from '@/app/components/AirportSearch'
+import airportsData from '@/data/airports.json'
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'TransferMundo – Airport Transport Guides',
+  description:
+    'Find the fastest and cheapest way from airport to city centre. Train, bus, metro, taxi and rental car options for major European airports.',
+}
+
+interface Airport {
+  slug: string
+  name: string
+  iata: string
+  country: string
+  googleScore: number
+  destinations: { name: string }[]
+}
+
+const airports = airportsData as Airport[]
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+      {/* Navbar */}
+      <nav className="bg-blue-700 text-white px-4 py-3">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <span className="text-xl font-bold tracking-tight">
+            Transfer<span className="text-blue-300">Mundo</span>
+          </span>
+          <span className="text-blue-200 text-sm hidden sm:block">Airport transport made simple</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center">
+        <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
+          Your airport transport guide
+        </p>
+        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
+          Get from airport to city — fast &amp; cheap
+        </h1>
+        <p className="text-blue-200 text-lg max-w-lg mb-10">
+          Compare every transport option: train, bus, metro, taxi and rental car.
+          No booking fees. Just the facts.
+        </p>
+
+        {/* Search */}
+        <AirportSearch />
+
+        <p className="text-blue-300 text-xs mt-4">
+          Currently covering {airports.length} airports in Europe
+        </p>
+      </section>
+
+      {/* Airport cards */}
+      <main className="max-w-5xl mx-auto w-full px-4 py-12">
+        <h2 className="text-xl font-bold text-slate-700 mb-6">Browse all airports</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {airports.map((airport) => (
+            <Link
+              key={airport.slug}
+              href={`/${airport.slug}`}
+              className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-blue-200 transition-all group"
+            >
+              <div className="flex items-start justify-between mb-2">
+                <span className="bg-blue-100 text-blue-700 text-sm font-bold px-2.5 py-1 rounded-lg">
+                  {airport.iata}
+                </span>
+                <span className="text-slate-400 text-xs">{airport.country}</span>
+              </div>
+              <h3 className="font-semibold text-slate-800 text-base group-hover:text-blue-700 transition-colors leading-snug">
+                {airport.name}
+              </h3>
+              <p className="text-slate-500 text-xs mt-2">
+                Destinations: {airport.destinations.map((d) => d.name).join(', ')}
+              </p>
+              <div className="mt-3 flex items-center justify-between">
+                <span className="text-yellow-500 text-sm">
+                  {'★'.repeat(Math.round(airport.googleScore))}
+                  {'☆'.repeat(5 - Math.round(airport.googleScore))}
+                  <span className="text-slate-500 text-xs ml-1">{airport.googleScore.toFixed(1)}</span>
+                </span>
+                <span className="text-blue-600 text-xs font-medium group-hover:underline">
+                  View guide →
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="mt-auto bg-slate-800 text-slate-400 text-center py-8 text-sm">
+        <p className="font-semibold text-white mb-1">TransferMundo</p>
+        <p>© {new Date().getFullYear()} · Airport transport made simple</p>
+      </footer>
     </div>
-  );
+  )
 }
