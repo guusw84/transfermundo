@@ -21,15 +21,19 @@ export default function AirportSearch() {
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
 
-  const filtered =
-    query.trim().length === 0
-      ? airports
-      : airports.filter(
-          (a) =>
-            a.name.toLowerCase().includes(query.toLowerCase()) ||
-            a.iata.toLowerCase().includes(query.toLowerCase()) ||
-            a.country.toLowerCase().includes(query.toLowerCase())
-        )
+  const trimmed = query.trim()
+  const hasEnoughChars = trimmed.length >= 3
+
+  const filtered = hasEnoughChars
+    ? airports.filter(
+        (a) =>
+          a.name.toLowerCase().includes(trimmed.toLowerCase()) ||
+          a.iata.toLowerCase().includes(trimmed.toLowerCase()) ||
+          a.country.toLowerCase().includes(trimmed.toLowerCase())
+      )
+    : []
+
+  const showDropdown = open && hasEnoughChars && filtered.length > 0
 
   const navigate = useCallback(
     (slug: string) => {
@@ -45,7 +49,7 @@ export default function AirportSearch() {
   }, [query])
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (!open) return
+    if (!showDropdown) return
     if (e.key === 'ArrowDown') {
       e.preventDefault()
       setHighlighted((h) => Math.min(h + 1, filtered.length - 1))
@@ -83,38 +87,43 @@ export default function AirportSearch() {
             setOpen(true)
           }}
           onFocus={() => setOpen(true)}
-          onBlur={() => setTimeout(() => setOpen(false), 150)}
+          onBlur={() => setTimeout(() => setOpen(false), 200)}
           onKeyDown={handleKeyDown}
           placeholder="Search by airport, city or IATA code…"
           aria-label="Search airports"
           aria-autocomplete="list"
-          aria-expanded={open}
+          aria-expanded={showDropdown}
           className="w-full pl-12 pr-4 py-4 rounded-2xl text-slate-800 text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 placeholder-slate-400"
         />
       </div>
 
-      {open && filtered.length > 0 && (
+      {showDropdown && (
         <ul
           ref={listRef}
           role="listbox"
-          className="absolute z-50 w-full mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden max-h-72 overflow-y-auto"
+          className="absolute z-[9999] w-full mt-2 bg-slate-950 border border-gray-800 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden max-h-72 overflow-y-auto"
         >
           {filtered.map((airport, i) => (
             <li
               key={airport.slug}
               role="option"
               aria-selected={i === highlighted}
-              onMouseDown={() => navigate(airport.slug)}
+              onMouseDown={(e) => {
+                e.preventDefault()
+                navigate(airport.slug)
+              }}
               onMouseEnter={() => setHighlighted(i)}
               className={`flex items-center justify-between px-5 py-3.5 cursor-pointer transition-colors ${
-                i === highlighted ? 'bg-blue-50' : 'hover:bg-slate-50'
+                i === highlighted
+                  ? 'bg-slate-800'
+                  : 'hover:bg-slate-800'
               }`}
             >
               <div>
-                <span className="font-semibold text-slate-800 text-sm">{airport.name}</span>
+                <span className="font-semibold text-white text-sm">{airport.name}</span>
                 <span className="text-slate-400 text-xs ml-2">{airport.country}</span>
               </div>
-              <span className="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-md">
+              <span className="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-md ml-3 shrink-0">
                 {airport.iata}
               </span>
             </li>
