@@ -22,7 +22,7 @@ const airports = airportsData as Airport[]
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+    <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       {/* Navbar */}
       <nav className="bg-blue-700 text-white px-4 py-3">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -35,7 +35,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <section
-        className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center overflow-hidden"
+        className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center"
         style={{ backgroundImage: "url('/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         {/* Dark overlay so text remains readable */}
@@ -55,8 +55,8 @@ export default function HomePage() {
           Currently covering {airports.length} airports in Europe
         </p>
 
-        {/* Search */}
-        <div className="relative z-10 w-full flex justify-center">
+        {/* Search — extra bottom padding gives the absolute dropdown room to hang below the section */}
+        <div className="relative z-10 w-full flex justify-center overflow-visible pb-20">
           <AirportSearch />
         </div>
       </section>
