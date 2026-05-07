@@ -51,14 +51,14 @@ export default function HomePage() {
           taxi, car rental and more at your destination airport. Explore the options and book!
         </p>
 
+        <p className="relative z-10 text-blue-300 text-xs mb-4">
+          Currently covering {airports.length} airports in Europe
+        </p>
+
         {/* Search */}
         <div className="relative z-10 w-full flex justify-center">
           <AirportSearch />
         </div>
-
-        <p className="relative z-10 text-blue-300 text-xs mt-4">
-          Currently covering {airports.length} airports in Europe
-        </p>
       </section>
 
       {/* Airport cards */}
