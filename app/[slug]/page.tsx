@@ -434,7 +434,7 @@ export default async function AirportPage({ params }: Props) {
       {/* Footer */}
       <footer className="bg-slate-800 text-slate-400 text-center py-8 mt-6 text-sm">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p>© {new Date().getFullYear()} · Get ready now!</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} · Get ready now!</p>
       </footer>
     </div>
   )

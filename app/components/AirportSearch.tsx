@@ -14,6 +14,7 @@ interface Airport {
 const airports = airportsData as Airport[]
 
 export default function AirportSearch() {
+  const [mounted, setMounted] = useState(false)
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
   const [highlighted, setHighlighted] = useState(-1)
@@ -33,7 +34,7 @@ export default function AirportSearch() {
       )
     : []
 
-  const showDropdown = open && hasEnoughChars && filtered.length > 0
+  const showDropdown = mounted && open && hasEnoughChars && filtered.length > 0
 
   const navigate = useCallback(
     (slug: string) => {
@@ -43,6 +44,10 @@ export default function AirportSearch() {
     },
     [router]
   )
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     setHighlighted(-1)

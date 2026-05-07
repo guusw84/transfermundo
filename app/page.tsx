@@ -101,7 +101,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="mt-auto bg-slate-800 text-slate-400 text-center py-8 text-sm">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p>© {new Date().getFullYear()} · Get ready now!</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} · Get ready now!</p>
       </footer>
     </div>
   )
