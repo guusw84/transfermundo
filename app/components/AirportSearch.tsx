@@ -2,18 +2,15 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import airportsData from '@/data/airports.json'
 
-interface Airport {
+interface AirportItem {
   slug: string
   name: string
   iata: string
   country: string
 }
 
-const airports = airportsData as Airport[]
-
-export default function AirportSearch() {
+export default function AirportSearch({ airports }: { airports: AirportItem[] }) {
   const [mounted, setMounted] = useState(false)
   const [query, setQuery] = useState('')
   const [open, setOpen] = useState(false)
@@ -25,7 +22,7 @@ export default function AirportSearch() {
   const trimmed = query.trim()
   const hasEnoughChars = trimmed.length >= 3
 
-  const filtered = hasEnoughChars
+  const filtered: AirportItem[] = hasEnoughChars
     ? airports.filter(
         (a) =>
           a.name.toLowerCase().includes(trimmed.toLowerCase()) ||

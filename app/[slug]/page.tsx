@@ -1,59 +1,11 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import airportsData from '@/data/airports.json'
+import { getAirports } from '@/lib/airports'
+import type { Airport, Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
 
-interface TransportOption {
-  type: string
-  boardingLocation: string
-  serviceName: string
-  operator: string
-  mainStations: string
-  timetableLink: string
-  travelTime: string
-  frequency: string
-  priceAdult: string
-  priceChild: string
-}
-
-interface Destination {
-  name: string
-  cityCenter: string
-  distanceKm: number
-  distanceMiles: number
-  transportOptionsCount: number
-  fastest: { mode: string; time: string; price: string; link: string }
-  cheapest: { mode: string; time: string; price: string; link: string }
-  gygQuery?: string
-  taxi: { time: string; fare: string }
-  transportOptions: TransportOption[]
-}
-
-interface Airport {
-  slug: string
-  name: string
-  iata: string
-  icao: string
-  country: string
-  continent: string
-  address: string
-  location: string
-  alsoKnownAs: string
-  terminals: string
-  passengers2023: string
-  operator: string
-  goodToKnow: string
-  moneySavingTip: string
-  appPublicTransport: string
-  googleScore: number
-  googleReviews: string
-  carRental: { location: string; eur: number; gbp: number; usd: number }
-  lastUpdate: string
-  destinations: Destination[]
-}
-
-const airports = airportsData as Airport[]
+const airports = getAirports()
 
 type Props = { params: Promise<{ slug: string }> }
 

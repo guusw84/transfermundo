@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AirportSearch from '@/app/components/AirportSearch'
-import airportsData from '@/data/airports.json'
+import { getAirports } from '@/lib/airports'
 
 export const metadata: Metadata = {
   title: 'TransferMundo – Airport Transport Guides',
@@ -9,18 +9,8 @@ export const metadata: Metadata = {
     'Find the fastest and cheapest way from airport to city centre. Train, bus, metro, taxi and rental car options for major European airports.',
 }
 
-interface Airport {
-  slug: string
-  name: string
-  iata: string
-  country: string
-  googleScore: number
-  destinations: { name: string }[]
-}
-
-const airports = airportsData as Airport[]
-
 export default function HomePage() {
+  const airports = getAirports()
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       {/* Navbar */}
@@ -57,7 +47,7 @@ export default function HomePage() {
 
         {/* Search — extra bottom padding gives the absolute dropdown room to hang below the section */}
         <div className="relative z-10 w-full flex justify-center overflow-visible pb-20">
-          <AirportSearch />
+          <AirportSearch airports={airports.map((a) => ({ slug: a.slug, name: a.name, iata: a.iata, country: a.country }))} />
         </div>
       </section>
 
