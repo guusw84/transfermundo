@@ -436,5 +436,501 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "basel-mulhouse-freiburg-airport",
+    "name": "Basel Mulhouse Freiburg Airport",
+    "iata": "BSL",
+    "icao": "LFSB",
+    "country": "Switzerland",
+    "continent": "Europe",
+    "address": "BP 60120, 68304 Saint-Louis Cedex, France",
+    "location": "northwest of Basel",
+    "alsoKnownAs": "EuroAirport, Basel Airport and Basel Mulhouse Airport",
+    "terminals": "1",
+    "passengers2023": "8,087,088",
+    "operator": "",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.8,
+    "googleReviews": "12.0K",
+    "carRental": {
+      "location": "French sector (hall 1, level 2) and Swiss sector (hall 4, level 2)",
+      "eur": 33,
+      "gbp": 28,
+      "usd": 36
+    },
+    "lastUpdate": "Feb 2024",
+    "destinations": [
+      {
+        "name": "Basel",
+        "gygQuery": "Basel",
+        "cityCenter": "Basler Münster",
+        "distanceKm": 6,
+        "distanceMiles": 3.7,
+        "transportOptionsCount": 2,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "12 minutes",
+          "price": "50 CHF",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=BSL"
+        },
+        "cheapest": {
+          "mode": "Public transport Bus",
+          "time": "18 minutes",
+          "price": "CHF 6.60 per person",
+          "link": "https://www.bvb.ch/de/fahrplan/haltestellen-fahrplan/"
+        },
+        "taxi": {
+          "time": "12 minutes",
+          "fare": "50 CHF"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Bus",
+            "boardingLocation": "Basel EuroAirport CH bus stop, in front of terminal (Swiss sector)",
+            "serviceName": "Bus line 50",
+            "operator": "BVB",
+            "mainStations": "Basel Bahnhof SBB",
+            "timetableLink": "https://www.bvb.ch/de/fahrplan/haltestellen-fahrplan/",
+            "travelTime": "18 minutes to Basel Bahnhof SBB (city centre)",
+            "frequency": "every 10 minutes",
+            "priceAdult": "CHF 6.60",
+            "priceChild": "CHF 4.20"
+          }
+        ]
+      },
+      {
+        "name": "Mulhouse",
+        "cityCenter": "Temple Saint-Étienne",
+        "distanceKm": 30,
+        "distanceMiles": 18.6,
+        "transportOptionsCount": 2,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "25 minutes",
+          "price": "50 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=BSL"
+        },
+        "cheapest": {
+          "mode": "Public transport Bus + train",
+          "time": "45 minutes",
+          "price": "€9.90 per person",
+          "link": "https://www.distribus.com/se-deplacer/navette-euroairport"
+        },
+        "taxi": {
+          "time": "25 minutes",
+          "fare": "50 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Bus + Train",
+            "boardingLocation": "Basel EuroAirport FR bus stop, in front of terminal (French sector)",
+            "serviceName": "Distribus line 11 (Navette EuroAirport) + train",
+            "operator": "Distribus and SNCF",
+            "mainStations": "Saint-Louis and Mulhouse",
+            "timetableLink": "https://www.distribus.com/se-deplacer/navette-euroairport",
+            "travelTime": "45 minutes to Mulhouse Gare Centrale (city centre)",
+            "frequency": "every 15 to 30 minutes",
+            "priceAdult": "€9.90",
+            "priceChild": "€9.90"
+          }
+        ]
+      },
+      {
+        "name": "Freiburg",
+        "cityCenter": "Altstadt",
+        "distanceKm": 75,
+        "distanceMiles": 46.6,
+        "transportOptionsCount": 2,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "50 minutes",
+          "price": "125 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=BSL"
+        },
+        "cheapest": {
+          "mode": "Bus service – FlixBus",
+          "time": "55 minutes",
+          "price": "€24.99 per person",
+          "link": "https://www.flixbus.com/bus/basel-euroairport"
+        },
+        "taxi": {
+          "time": "50 minutes",
+          "fare": "125 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Bus service",
+            "boardingLocation": "FlixBus bus stop, in front of terminal (French sector)",
+            "serviceName": "FlixBus",
+            "operator": "FlixBus",
+            "mainStations": "Busbahnhof ZOB am Freiburg Hauptbahnhof",
+            "timetableLink": "https://www.flixbus.com/bus/basel-euroairport",
+            "travelTime": "55 minutes to Busbahnhof ZOB am Freiburg Hauptbahnhof",
+            "frequency": "1 time per hour",
+            "priceAdult": "€24.99",
+            "priceChild": "€24.99"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "podgorica-airport",
+    "name": "Podgorica Airport",
+    "iata": "TGD",
+    "icao": "LYPG",
+    "country": "Montenegro",
+    "continent": "Europe",
+    "address": "81000 Podgorica, Montenegro",
+    "location": "south of Podgorica",
+    "alsoKnownAs": "Golubovci Airport",
+    "terminals": "1",
+    "passengers2023": "1,657,522",
+    "operator": "Airports of Montenegro",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.0,
+    "googleReviews": "3.0K",
+    "carRental": {
+      "location": "Arrivals hall",
+      "eur": 10,
+      "gbp": 9,
+      "usd": 11
+    },
+    "lastUpdate": "May 2024",
+    "destinations": [
+      {
+        "name": "Podgorica",
+        "cityCenter": "Independence Square",
+        "distanceKm": 11,
+        "distanceMiles": 6.8,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "20 minutes",
+          "price": "15 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TGD"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "20 minutes",
+          "price": "15 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TGD"
+        },
+        "taxi": {
+          "time": "20 minutes",
+          "fare": "15 EUR"
+        },
+        "transportOptions": []
+      }
+    ]
+  },
+  {
+    "slug": "tivat-airport",
+    "name": "Tivat Airport",
+    "iata": "TIV",
+    "icao": "LYTV",
+    "country": "Montenegro",
+    "continent": "Europe",
+    "address": "85320 Tivat, Montenegro",
+    "location": "southeast of Tivat",
+    "alsoKnownAs": "Tivat International Airport",
+    "terminals": "2 (T1 and T2)",
+    "passengers2023": "848,188",
+    "operator": "Airports of Montenegro",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 2.5,
+    "googleReviews": "3.7K",
+    "carRental": {
+      "location": "Terminal 1 Departures hall",
+      "eur": 12,
+      "gbp": 10,
+      "usd": 13
+    },
+    "lastUpdate": "May 2024",
+    "destinations": [
+      {
+        "name": "Tivat",
+        "gygQuery": "Kotor",
+        "cityCenter": "Pine",
+        "distanceKm": 3,
+        "distanceMiles": 1.9,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "7 minutes",
+          "price": "10 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "7 minutes",
+          "price": "10 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "taxi": {
+          "time": "7 minutes",
+          "fare": "10 EUR"
+        },
+        "transportOptions": []
+      },
+      {
+        "name": "Kotor",
+        "cityCenter": "Sea Gate",
+        "distanceKm": 8,
+        "distanceMiles": 5.0,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "15 minutes",
+          "price": "20 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "15 minutes",
+          "price": "20 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "taxi": {
+          "time": "15 minutes",
+          "fare": "20 EUR"
+        },
+        "transportOptions": []
+      },
+      {
+        "name": "Budva",
+        "cityCenter": "Old Town",
+        "distanceKm": 21,
+        "distanceMiles": 13.0,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "30 minutes",
+          "price": "30 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "30 minutes",
+          "price": "30 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TIV"
+        },
+        "taxi": {
+          "time": "30 minutes",
+          "fare": "30 EUR"
+        },
+        "transportOptions": []
+      }
+    ]
+  },
+  {
+    "slug": "trapani-airport",
+    "name": "Trapani Airport",
+    "iata": "TPS",
+    "icao": "LICT",
+    "country": "Italy",
+    "continent": "Europe",
+    "address": "91020 Trapani TP, Italy",
+    "location": "south of Trapani",
+    "alsoKnownAs": "Trapani Birgi Airport and Vincenzo Florio Airport",
+    "terminals": "1",
+    "passengers2023": "1,332,860",
+    "operator": "",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.8,
+    "googleReviews": "3.7K",
+    "carRental": {
+      "location": "Arrivals hall",
+      "eur": 20,
+      "gbp": 17,
+      "usd": 22
+    },
+    "lastUpdate": "Oct 2024",
+    "destinations": [
+      {
+        "name": "Trapani",
+        "gygQuery": "Trapani",
+        "cityCenter": "Corso Vittorio Emanuele",
+        "distanceKm": 18,
+        "distanceMiles": 11.2,
+        "transportOptionsCount": 2,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "30 minutes",
+          "price": "35 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TPS"
+        },
+        "cheapest": {
+          "mode": "Public transport Bus",
+          "time": "40 minutes",
+          "price": "€4.90 per person",
+          "link": "http://www.aziendasicilianatrasporti.it/"
+        },
+        "taxi": {
+          "time": "30 minutes",
+          "fare": "35 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Public transport Bus",
+            "boardingLocation": "Trapani Airport bus station (Fermata autobus AST / Salemi / Lumia), 250 metres from the terminal",
+            "serviceName": "Local bus",
+            "operator": "AST",
+            "mainStations": "City centre and Trapani Port",
+            "timetableLink": "http://www.aziendasicilianatrasporti.it/",
+            "travelTime": "40 minutes to city centre",
+            "frequency": "1 time per hour",
+            "priceAdult": "€4.90",
+            "priceChild": "€4.90"
+          }
+        ]
+      },
+      {
+        "name": "Marsala",
+        "cityCenter": "Porta Garibaldi",
+        "distanceKm": 16,
+        "distanceMiles": 9.9,
+        "transportOptionsCount": 2,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "25 minutes",
+          "price": "35 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=TPS"
+        },
+        "cheapest": {
+          "mode": "Bus service",
+          "time": "30 minutes",
+          "price": "€2.50 per person",
+          "link": "https://www.autoservizisalemi.it/en/destinazioni/linea/aeroporti/trapani-birgi-palermo/"
+        },
+        "taxi": {
+          "time": "25 minutes",
+          "fare": "35 EUR"
+        },
+        "transportOptions": [
+          {
+            "type": "Bus service",
+            "boardingLocation": "Trapani Airport bus station (Fermata autobus AST / Salemi / Lumia), 250 metres from the terminal",
+            "serviceName": "Bus SS115 / Bus SP21",
+            "operator": "Autoservizi Salemi",
+            "mainStations": "Via Trapani, Via Dante Alighieri and Stazione F.S.",
+            "timetableLink": "https://www.autoservizisalemi.it/en/destinazioni/linea/aeroporti/trapani-birgi-palermo/",
+            "travelTime": "30 minutes to Marsala Train Station",
+            "frequency": "7 to 9 times per day",
+            "priceAdult": "€2.50",
+            "priceChild": "€2.50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "comiso-airport",
+    "name": "Comiso Airport",
+    "iata": "CIY",
+    "icao": "LICB",
+    "country": "Italy",
+    "continent": "Europe",
+    "address": "Strada Provinciale 5, 97013 Comiso RG, Italy",
+    "location": "north of Comiso",
+    "alsoKnownAs": "Vincenzo Magliocco Airport and Pio La Torre Airport",
+    "terminals": "1",
+    "passengers2023": "303,414",
+    "operator": "",
+    "goodToKnow": "",
+    "moneySavingTip": "",
+    "appPublicTransport": "",
+    "googleScore": 3.9,
+    "googleReviews": "1.3K",
+    "carRental": {
+      "location": "Arrivals hall",
+      "eur": 32,
+      "gbp": 27,
+      "usd": 35
+    },
+    "lastUpdate": "Oct 2024",
+    "destinations": [
+      {
+        "name": "Comiso",
+        "cityCenter": "Piazza Fonte Diana",
+        "distanceKm": 7,
+        "distanceMiles": 4.3,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "15 minutes",
+          "price": "25 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "15 minutes",
+          "price": "25 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "taxi": {
+          "time": "15 minutes",
+          "fare": "25 EUR"
+        },
+        "transportOptions": []
+      },
+      {
+        "name": "Ragusa",
+        "cityCenter": "Cattedrale di San Giovanni Battista",
+        "distanceKm": 26,
+        "distanceMiles": 16.2,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "30 minutes",
+          "price": "50 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "30 minutes",
+          "price": "50 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "taxi": {
+          "time": "30 minutes",
+          "fare": "50 EUR"
+        },
+        "transportOptions": []
+      },
+      {
+        "name": "Modica",
+        "cityCenter": "Corso Umberto I",
+        "distanceKm": 43,
+        "distanceMiles": 26.7,
+        "transportOptionsCount": 1,
+        "fastest": {
+          "mode": "Taxi",
+          "time": "45 minutes",
+          "price": "75 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "cheapest": {
+          "mode": "Taxi",
+          "time": "45 minutes",
+          "price": "75 EUR",
+          "link": "https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=CIY"
+        },
+        "taxi": {
+          "time": "45 minutes",
+          "fare": "75 EUR"
+        },
+        "transportOptions": []
+      }
+    ]
   }
 ]
