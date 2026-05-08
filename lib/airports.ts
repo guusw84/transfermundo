@@ -9,6 +9,7 @@ export interface TransportOption {
   operator: string
   mainStations: string
   timetableLink: string
+  buyTicketsLink: string
   travelTime: string
   frequency: string
   priceAdult: string
@@ -93,6 +94,7 @@ function parseTransportOption(
     operator: col(row, `Operator ${key}`),
     mainStations: col(row, `Main stations ${key}`),
     timetableLink: col(row, `Timetable link ${key}`),
+    buyTicketsLink: col(row, `Buy tickets ${key}`),
     travelTime: col(row, `Travel time ${key}`),
     frequency: col(row, `Frequency ${key}`),
     priceAdult: col(row, `One-way adults ${key}`),
