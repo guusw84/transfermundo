@@ -46,7 +46,7 @@ export interface Airport {
   appPublicTransport: string
   googleScore: number
   googleReviews: string
-  carRental: { location: string; eur: number; gbp: number; usd: number }
+  carRental: { location: string; eur: number; gbp: number; usd: number; popular: boolean }
   lastUpdate: string
   destinations: Destination[]
 }
@@ -199,6 +199,7 @@ export function getAirports(): Airport[] {
         eur: parseFloat(col(row, 'Car rental EUR')) || 0,
         gbp: parseFloat(col(row, 'Car rental GBP')) || 0,
         usd: parseFloat(col(row, 'Car rental USD')) || 0,
+        popular: col(row, 'Car rental populair').toLowerCase() === 'yes',
       },
       lastUpdate: col(row, 'Last update'),
       destinations,
