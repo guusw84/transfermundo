@@ -86,7 +86,7 @@ function parseTransportOption(
 ): TransportOption | null {
   const key = `${n}${m}`
   const type = col(row, `Transportation option ${key}`)
-  if (!type) return null
+  if (!type || type.toLowerCase() === 'not available') return null
   return {
     type,
     boardingLocation: col(row, `Location station/stop at airport ${key}`),
