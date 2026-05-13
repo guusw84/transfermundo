@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { getAirports } from '@/lib/airports'
 import type { Airport, Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
+import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
 
 const airports = getAirports()
 
@@ -217,6 +218,12 @@ export default async function AirportPage({ params }: Props) {
                 />
               </div>
             </div>
+
+            <CostPerPersonGraph
+              taxiFare={dest.taxi.fare}
+              airportName={airport.name}
+              iata={airport.iata}
+            />
 
             {/* Transport option cards */}
             {dest.transportOptions.length > 0 && (
