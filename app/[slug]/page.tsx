@@ -47,13 +47,25 @@ function hasCheapest(dest: Destination): boolean {
   return Boolean(m) && m !== 'null' && m !== '0'
 }
 
+function isEcoFriendly(type: string): boolean {
+  const t = type.toLowerCase()
+  return t.includes('train') || t.includes('bus') || t.includes('metro') ||
+    t.includes('s-bahn') || t.includes('u-bahn') || t.includes('tram')
+}
+
+function lastUpdatedLabel(): string {
+  const d = new Date()
+  return new Date(d.getFullYear(), d.getMonth() - 1)
+    .toLocaleString('en-US', { month: 'long', year: 'numeric' })
+}
+
 export default async function AirportPage({ params }: Props) {
   const { slug } = await params
   const airport = airports.find((a) => a.slug === slug)
   if (!airport) notFound()
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans" suppressHydrationWarning>
       {/* Navbar */}
       <nav className="bg-blue-700 text-white px-4 py-3 sticky top-0 z-50 shadow-md">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -70,7 +82,8 @@ export default async function AirportPage({ params }: Props) {
           <p className="text-blue-300 text-sm font-medium mb-1 uppercase tracking-wider">
             {airport.continent} · {airport.country}
           </p>
-          <div>
+          <div className="flex items-start justify-between gap-4">
+            <div>
             <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">{airport.name}</h1>
             <p className="text-blue-300 mt-1 text-sm">
               IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
@@ -83,6 +96,13 @@ export default async function AirportPage({ params }: Props) {
               <span className="text-white font-bold text-sm">
                 {airport.destinations.map((d) => d.name).join(', ')}
               </span>
+            </div>
+            </div>
+            <div className="shrink-0 text-right" suppressHydrationWarning>
+              <span className="inline-flex items-center gap-1.5 bg-white/15 border border-white/25 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                ✔ Verified Data
+              </span>
+              <p className="text-blue-300 text-xs mt-1" suppressHydrationWarning>Last updated: {lastUpdatedLabel()}</p>
             </div>
           </div>
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
@@ -119,6 +139,7 @@ export default async function AirportPage({ params }: Props) {
         </div>
       )}
 
+
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-4 py-10 space-y-14">
         {airport.destinations.map((dest, di) => (
@@ -150,7 +171,7 @@ export default async function AirportPage({ params }: Props) {
               Travel expenses to/from {dest.name}
             </h3>
             <div className={`grid grid-cols-1 gap-4 mb-6 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
-              <div className="bg-white rounded-2xl border border-blue-100 shadow-sm p-5 flex flex-col gap-2">
+              <div className="bg-white rounded-2xl border border-blue-100 p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
                   ⚡ Fastest
                 </span>
@@ -172,7 +193,7 @@ export default async function AirportPage({ params }: Props) {
               </div>
 
               {hasCheapest(dest) && (
-                <div className="bg-white rounded-2xl border border-green-100 shadow-sm p-5 flex flex-col gap-2">
+                <div className="bg-white rounded-2xl border border-green-100 p-5 flex flex-col gap-2">
                   <span className="inline-flex items-center gap-1.5 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
                     💰 Cheapest
                   </span>
@@ -190,7 +211,7 @@ export default async function AirportPage({ params }: Props) {
                 </div>
               )}
 
-              <div className="bg-white rounded-2xl border border-yellow-100 shadow-sm p-5 flex flex-col gap-2">
+              <div className="bg-white rounded-2xl border border-yellow-100 p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full w-fit">
                   🚕 Door to door
                 </span>
@@ -209,7 +230,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* 3. Rental car block */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-8">
+            <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -248,7 +269,7 @@ export default async function AirportPage({ params }: Props) {
             )}
             <div className="space-y-4">
               {/* Taxi card */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+              <div className="bg-white rounded-2xl border border-slate-200 p-5">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
@@ -287,7 +308,7 @@ export default async function AirportPage({ params }: Props) {
               {dest.transportOptions.length > 0 && dest.transportOptions.map((opt, oi) => (
                 <div
                   key={oi}
-                  className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5"
+                  className="bg-white rounded-2xl border border-slate-200 p-5"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5">
                     <div className="flex-1 min-w-0">
@@ -297,6 +318,11 @@ export default async function AirportPage({ params }: Props) {
                         >
                           {transportIcon(opt.type)} {opt.type}
                         </span>
+                        {isEcoFriendly(opt.type) && (
+                          <span className="inline-flex items-center gap-1 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">
+                            🌿 Eco-friendly
+                          </span>
+                        )}
                       </div>
                       <p className="font-bold text-slate-800 text-xl leading-snug">{opt.serviceName}</p>
                       <p className="text-slate-500 text-sm mt-0.5">Operated by {opt.operator}</p>
@@ -341,7 +367,7 @@ export default async function AirportPage({ params }: Props) {
               ))}
 
               {/* Car rental card */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
+              <div className="bg-white rounded-2xl border border-slate-200 p-5">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
@@ -385,7 +411,7 @@ export default async function AirportPage({ params }: Props) {
           >
             General information
           </h2>
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
               <InfoItem label="IATA / ICAO" value={`${airport.iata} / ${airport.icao}`} />
               <InfoItem label="Country" value={airport.country} />

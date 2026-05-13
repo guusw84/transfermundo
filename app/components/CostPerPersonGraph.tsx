@@ -44,7 +44,7 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
   }))
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-8">
+    <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
       <h3 className="font-bold text-slate-800 text-base mb-1 leading-snug">
         Taking a taxi from {airportName} to the city centre is more affordable than you might expect.
       </h3>
