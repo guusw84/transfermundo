@@ -83,6 +83,12 @@ export default async function AirportPage({ params }: Props) {
                 IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
                 ICAO: <strong className="text-white">{airport.icao}</strong>
               </p>
+              <p className="text-blue-300 mt-1 text-sm">
+                {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:{' '}
+                <strong className="text-white">
+                  {airport.destinations.map((d) => d.name).join(', ')}
+                </strong>
+              </p>
             </div>
             <div className="bg-white/10 rounded-2xl px-5 py-3 text-center shrink-0">
               <div className="text-3xl font-extrabold">{airport.googleScore.toFixed(1)}</div>
