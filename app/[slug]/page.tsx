@@ -161,7 +161,11 @@ export default async function AirportPage({ params }: Props) {
                   href={dest.fastest.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-sm px-4 py-2 rounded-xl transition text-center"
+                  className={`mt-auto font-semibold text-sm px-4 py-2 rounded-xl transition text-center ${
+                    dest.fastest.mode === 'Taxi'
+                      ? 'bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-yellow-900'
+                      : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white'
+                  }`}
                 >
                   {dest.fastest.mode === 'Taxi' ? 'Book taxi →' : 'Buy tickets →'}
                 </a>
