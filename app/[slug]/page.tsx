@@ -41,6 +41,10 @@ function transportIcon(type: string): string {
   return '🚌'
 }
 
+function hasCheapest(dest: Destination): boolean {
+  const m = dest.cheapest.mode
+  return Boolean(m) && m !== 'null' && m !== '0'
+}
 
 export default async function AirportPage({ params }: Props) {
   const { slug } = await params
@@ -134,7 +138,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* Fastest / Cheapest / Door to door */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div className={`grid grid-cols-1 gap-4 mb-8 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
               <div className="bg-white rounded-2xl border border-blue-100 shadow-sm p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
                   ⚡ Fastest
@@ -152,22 +156,24 @@ export default async function AirportPage({ params }: Props) {
                 </a>
               </div>
 
-              <div className="bg-white rounded-2xl border border-green-100 shadow-sm p-5 flex flex-col gap-2">
-                <span className="inline-flex items-center gap-1.5 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
-                  💰 Cheapest
-                </span>
-                <p className="text-slate-800 font-bold text-lg leading-snug">{dest.cheapest.mode}</p>
-                <p className="text-slate-500 text-sm">{dest.cheapest.time}</p>
-                <p className="text-green-700 font-semibold text-base">{dest.cheapest.price}</p>
-                <a
-                  href={dest.cheapest.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold text-sm px-4 py-2 rounded-xl transition text-center"
-                >
-                  Buy tickets →
-                </a>
-              </div>
+              {hasCheapest(dest) && (
+                <div className="bg-white rounded-2xl border border-green-100 shadow-sm p-5 flex flex-col gap-2">
+                  <span className="inline-flex items-center gap-1.5 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
+                    💰 Cheapest
+                  </span>
+                  <p className="text-slate-800 font-bold text-lg leading-snug">{dest.cheapest.mode}</p>
+                  <p className="text-slate-500 text-sm">{dest.cheapest.time}</p>
+                  <p className="text-green-700 font-semibold text-base">{dest.cheapest.price}</p>
+                  <a
+                    href={dest.cheapest.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold text-sm px-4 py-2 rounded-xl transition text-center"
+                  >
+                    Buy tickets →
+                  </a>
+                </div>
+              )}
 
               <div className="bg-white rounded-2xl border border-yellow-100 shadow-sm p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full w-fit">
@@ -196,7 +202,7 @@ export default async function AirportPage({ params }: Props) {
               </div>
               <div className="divide-y divide-slate-100">
                 <ExpenseRow label="Fastest" value={`${dest.fastest.mode} · ${dest.fastest.time} · ${dest.fastest.price}`} accent="blue" />
-                <ExpenseRow label="Cheapest" value={`${dest.cheapest.mode} · ${dest.cheapest.time} · ${dest.cheapest.price}`} accent="green" />
+                <ExpenseRow label="Cheapest" value={hasCheapest(dest) ? `${dest.cheapest.mode} · ${dest.cheapest.time} · ${dest.cheapest.price}` : '...'} accent="green" />
                 <ExpenseRow
                   label="Door to door"
                   sub="Taxi"
