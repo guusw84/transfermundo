@@ -95,7 +95,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
             <div className="bg-white/10 px-4 py-2 rounded-xl">
               <span className="text-blue-300 text-xs block mb-0.5">Reviews</span>
-              <span className="font-semibold">{airport.googleScore.toFixed(1)} ★ · {airport.googleReviews}</span>
+              <span className="font-semibold">{airport.googleScore.toFixed(1)} ★ / 5.0 · {airport.googleReviews}</span>
             </div>
           </div>
         </div>
