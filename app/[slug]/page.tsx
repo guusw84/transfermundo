@@ -291,22 +291,24 @@ export default async function AirportPage({ params }: Props) {
                           {opt.priceChild} <span className="text-slate-400">children</span>
                         </p>
                       </div>
-                      <a
-                        href={opt.buyTicketsLink.startsWith('http') ? opt.buyTicketsLink : opt.timetableLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shrink-0 text-center"
-                      >
-                        Buy tickets →
-                      </a>
-                      <a
-                        href={opt.timetableLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded-xl transition shrink-0 text-center"
-                      >
-                        Timetable →
-                      </a>
+                      <div className="flex flex-col gap-2 shrink-0">
+                        <a
+                          href={opt.buyTicketsLink.startsWith('http') ? opt.buyTicketsLink : opt.timetableLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-xl transition text-center"
+                        >
+                          Buy tickets →
+                        </a>
+                        <a
+                          href={opt.timetableLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded-xl transition text-center"
+                        >
+                          Timetable →
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
