@@ -41,17 +41,6 @@ function transportIcon(type: string): string {
   return '🚌'
 }
 
-function StarRating({ score }: { score: number }) {
-  const full = Math.floor(score)
-  const half = score - full >= 0.3
-  return (
-    <span className="text-yellow-400 text-sm">
-      {'★'.repeat(full)}
-      {half ? '½' : ''}
-      {'☆'.repeat(5 - full - (half ? 1 : 0))}
-    </span>
-  )
-}
 
 export default async function AirportPage({ params }: Props) {
   const { slug } = await params
@@ -76,29 +65,22 @@ export default async function AirportPage({ params }: Props) {
           <p className="text-blue-300 text-sm font-medium mb-1 uppercase tracking-wider">
             {airport.continent} · {airport.country}
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">{airport.name}</h1>
-              <p className="text-blue-300 mt-1 text-sm">
-                IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
-                ICAO: <strong className="text-white">{airport.icao}</strong>
-              </p>
-              <div className="mt-3 inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-3 py-1.5">
-                <span className="text-blue-200 text-xs font-medium">
-                  📍 {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:
-                </span>
-                <span className="text-white font-bold text-sm">
-                  {airport.destinations.map((d) => d.name).join(', ')}
-                </span>
-              </div>
-            </div>
-            <div className="bg-white/10 rounded-2xl px-5 py-3 text-center shrink-0">
-              <div className="text-3xl font-extrabold">{airport.googleScore.toFixed(1)}</div>
-              <StarRating score={airport.googleScore} />
-              <div className="text-blue-300 text-xs mt-0.5">{airport.googleReviews} reviews</div>
+          <div>
+            <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">{airport.name}</h1>
+            <p className="text-blue-300 mt-1 text-sm">
+              IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
+              ICAO: <strong className="text-white">{airport.icao}</strong>
+            </p>
+            <div className="mt-3 inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-3 py-1.5">
+              <span className="text-blue-200 text-xs font-medium">
+                📍 {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:
+              </span>
+              <span className="text-white font-bold text-sm">
+                {airport.destinations.map((d) => d.name).join(', ')}
+              </span>
             </div>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3 text-sm">
+          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
             <div className="bg-white/10 px-4 py-2 rounded-xl">
               <span className="text-blue-300 text-xs block mb-0.5">Location</span>
               <span className="font-semibold">{airport.location}</span>
@@ -110,6 +92,10 @@ export default async function AirportPage({ params }: Props) {
             <div className="bg-white/10 px-4 py-2 rounded-xl">
               <span className="text-blue-300 text-xs block mb-0.5">Passengers</span>
               <span className="font-semibold">{airport.passengers2023}</span>
+            </div>
+            <div className="bg-white/10 px-4 py-2 rounded-xl">
+              <span className="text-blue-300 text-xs block mb-0.5">Reviews</span>
+              <span className="font-semibold">{airport.googleScore.toFixed(1)} ★ · {airport.googleReviews}</span>
             </div>
           </div>
         </div>
