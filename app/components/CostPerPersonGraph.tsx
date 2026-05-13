@@ -31,6 +31,7 @@ const BAR_COLORS = [
   'bg-green-500',
 ]
 
+// Tailwind width classes — must be full strings so the purger keeps them
 const WIDTHS = ['w-full', 'w-1/2', 'w-1/3', 'w-1/4']
 
 export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Props) {
@@ -47,22 +48,28 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
       <h3 className="font-bold text-slate-800 text-base mb-1 leading-snug">
         Taking a taxi from {airportName} to the city centre is more affordable than you might expect.
       </h3>
-      <p className="text-slate-500 text-xs mb-5">Cost per person based on a shared taxi fare of {taxiFare}</p>
+      <p className="text-slate-500 text-xs mb-5">
+        Cost per person based on a shared taxi fare of {taxiFare}
+      </p>
 
       <div className="space-y-3">
         {rows.map(({ passengers, price }, i) => (
           <div key={passengers} className="flex items-center gap-3">
-            <span className="text-slate-600 text-sm w-24 shrink-0">
-              {passengers} {passengers === 1 ? 'passenger' : 'passengers'}
+            {/* Passenger label — fixed width so all bars start at the same x */}
+            <span className="text-slate-600 text-sm w-20 shrink-0">
+              {passengers}&nbsp;{passengers === 1 ? 'person' : 'persons'}
             </span>
-            <div className="flex-1 bg-slate-100 rounded-full h-7 overflow-hidden">
-              <div
-                className={`${BAR_COLORS[i]} ${WIDTHS[i]} h-full rounded-full flex items-center px-3`}
-              >
-                <span className="text-white text-xs font-bold drop-shadow-sm">
-                  {formatPrice(price, symbol)} p.p.
-                </span>
+
+            {/* Track + bar — price is outside the bar, no overflow clipping needed */}
+            <div className="flex flex-1 items-center gap-2 min-w-0">
+              <div className="flex-1 bg-slate-100 rounded-full h-6 min-w-0">
+                <div className={`${BAR_COLORS[i]} ${WIDTHS[i]} h-full rounded-full`} />
               </div>
+
+              {/* Price always rendered to the right, never clipped */}
+              <span className="text-slate-800 text-sm font-bold shrink-0 w-20 text-right">
+                {formatPrice(price, symbol)}<span className="text-slate-400 font-normal text-xs"> p.p.</span>
+              </span>
             </div>
           </div>
         ))}
