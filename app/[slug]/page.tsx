@@ -139,6 +139,9 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* Fastest / Cheapest / Door to door */}
+            <h3 className="font-semibold text-slate-700 text-sm uppercase tracking-wide mb-3">
+              Travel expenses to/from {dest.name}
+            </h3>
             <div className={`grid grid-cols-1 gap-4 mb-8 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
               <div className="bg-white rounded-2xl border border-blue-100 shadow-sm p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
@@ -194,30 +197,6 @@ export default async function AirportPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Expenses overview table */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm mb-8 overflow-hidden">
-              <div className="px-5 py-4 border-b border-slate-100">
-                <h3 className="font-semibold text-slate-700 text-sm uppercase tracking-wide">
-                  Travel expenses to/from {dest.name}
-                </h3>
-              </div>
-              <div className="divide-y divide-slate-100">
-                <ExpenseRow label="Fastest" value={`${dest.fastest.mode} · ${dest.fastest.time} · ${dest.fastest.price}`} accent="blue" />
-                <ExpenseRow label="Cheapest" value={hasCheapest(dest) ? `${dest.cheapest.mode} · ${dest.cheapest.time} · ${dest.cheapest.price}` : '...'} accent="green" />
-                <ExpenseRow
-                  label="Door to door"
-                  sub="Taxi"
-                  value={`${dest.taxi.time} · ${dest.taxi.fare} · 3–4 persons max`}
-                  accent="yellow"
-                />
-                <ExpenseRow
-                  label="Flexibility"
-                  sub="Rental car"
-                  value={`€${airport.carRental.eur} / £${airport.carRental.gbp} / $${airport.carRental.usd} per day · Go further!`}
-                  accent="slate"
-                />
-              </div>
-            </div>
 
             <CostPerPersonGraph
               taxiFare={dest.taxi.fare}
@@ -424,33 +403,6 @@ export default async function AirportPage({ params }: Props) {
   )
 }
 
-function ExpenseRow({
-  label,
-  sub,
-  value,
-  accent,
-}: {
-  label: string
-  sub?: string
-  value: string
-  accent: 'blue' | 'green' | 'yellow' | 'slate'
-}) {
-  const accentMap = {
-    blue: 'text-blue-700 font-bold',
-    green: 'text-green-700 font-bold',
-    yellow: 'text-yellow-700 font-bold',
-    slate: 'text-slate-700 font-bold',
-  }
-  return (
-    <div className="px-5 py-3 flex items-start gap-3">
-      <div className="w-28 shrink-0">
-        <span className={`text-sm ${accentMap[accent]}`}>{label}</span>
-        {sub && <p className="text-xs text-slate-400">{sub}</p>}
-      </div>
-      <p className="text-slate-600 text-sm">{value}</p>
-    </div>
-  )
-}
 
 function InfoItem({
   label,
