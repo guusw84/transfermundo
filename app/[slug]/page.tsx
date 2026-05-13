@@ -138,11 +138,18 @@ export default async function AirportPage({ params }: Props) {
               </p>
             </div>
 
-            {/* Fastest / Cheapest / Door to door */}
+            {/* 1. Taxi cost-per-person graph */}
+            <CostPerPersonGraph
+              taxiFare={dest.taxi.fare}
+              airportName={airport.name}
+              iata={airport.iata}
+            />
+
+            {/* 2. Travel expenses title + Fastest / Cheapest / Door to door */}
             <h3 className="font-semibold text-slate-700 text-sm uppercase tracking-wide mb-3">
               Travel expenses to/from {dest.name}
             </h3>
-            <div className={`grid grid-cols-1 gap-4 mb-8 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
+            <div className={`grid grid-cols-1 gap-4 mb-6 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
               <div className="bg-white rounded-2xl border border-blue-100 shadow-sm p-5 flex flex-col gap-2">
                 <span className="inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
                   ⚡ Fastest
@@ -197,7 +204,7 @@ export default async function AirportPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Rental car — repeated here for visibility */}
+            {/* 3. Rental car block */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-8">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
@@ -230,12 +237,6 @@ export default async function AirportPage({ params }: Props) {
                 </p>
               </div>
             </div>
-
-            <CostPerPersonGraph
-              taxiFare={dest.taxi.fare}
-              airportName={airport.name}
-              iata={airport.iata}
-            />
 
             {/* Transport option cards */}
             {dest.transportOptions.length > 0 && (
