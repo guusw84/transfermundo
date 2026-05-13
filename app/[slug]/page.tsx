@@ -219,7 +219,9 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* Transport option cards */}
-            <h3 className="text-lg font-semibold text-slate-700 mb-4">All transport options to {dest.name}</h3>
+            {dest.transportOptions.length > 0 && (
+              <h3 className="text-lg font-semibold text-slate-700 mb-4">All transport options to {dest.name}</h3>
+            )}
             <div className="space-y-4">
               {/* Taxi card */}
               <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5">
@@ -258,7 +260,7 @@ export default async function AirportPage({ params }: Props) {
               </div>
 
               {/* Public transport cards */}
-              {dest.transportOptions.map((opt, oi) => (
+              {dest.transportOptions.length > 0 && dest.transportOptions.map((opt, oi) => (
                 <div
                   key={oi}
                   className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5"
