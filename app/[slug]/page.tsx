@@ -133,7 +133,7 @@ export default async function AirportPage({ params }: Props) {
               </h2>
               <p className="text-slate-500 mt-1 text-sm">
                 City centre: <strong className="text-slate-700">{dest.cityCenter}</strong>
-                &nbsp;·&nbsp;{dest.distanceKm} km / {dest.distanceMiles.toFixed(1)} miles
+                &nbsp;·&nbsp;{`${dest.distanceKm} km / ${dest.distanceMiles.toFixed(1)} miles`}
                 &nbsp;·&nbsp;{dest.transportOptionsCount} transport options (incl. taxi)
               </p>
             </div>
