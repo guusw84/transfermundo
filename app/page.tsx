@@ -71,7 +71,7 @@ export default function HomePage() {
                 {airport.name}
               </h3>
               <p className="text-slate-500 text-xs mt-2">
-                Destinations: {airport.destinations.map((d) => d.name).join(', ')}
+                {airport.destinations.length === 1 ? 'Destination' : 'Destinations'}: {airport.destinations.map((d) => d.name).join(', ')}
               </p>
               <div className="mt-3 flex items-center justify-between">
                 <span className="text-yellow-500 text-sm">
