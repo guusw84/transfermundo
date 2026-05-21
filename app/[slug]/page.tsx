@@ -98,7 +98,7 @@ export default async function AirportPage({ params }: Props) {
               </span>
             </div>
             </div>
-            <div className="shrink-0 text-right" suppressHydrationWarning>
+            <div className="hidden md:block shrink-0 text-right" suppressHydrationWarning>
               <span className="inline-flex items-center gap-1.5 bg-white/15 border border-white/25 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                 ✔ Verified Data
               </span>
