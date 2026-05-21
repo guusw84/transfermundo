@@ -4,24 +4,17 @@ interface Props {
   iata: string
 }
 
-const CURRENCY_SYMBOL: Record<string, string> = {
-  EUR: '€',
-  GBP: '£',
-  USD: '$',
-  CHF: 'CHF ',
-}
-
-function parseFare(fare: string): { amount: number; symbol: string } {
+function parseFare(fare: string): { amount: number; code: string } {
   const match = fare.match(/(\d+(?:\.\d+)?)\s*([A-Z]{3})?/)
   const amount = match ? parseFloat(match[1]) : 0
   const code = match?.[2] ?? 'EUR'
-  return { amount, symbol: CURRENCY_SYMBOL[code] ?? `${code} ` }
+  return { amount, code }
 }
 
-function formatPrice(amount: number, symbol: string): string {
+function formatPrice(amount: number, code: string): string {
   const rounded = Math.round(amount * 100) / 100
   const str = rounded % 1 === 0 ? `${rounded}` : rounded.toFixed(2)
-  return `${symbol}${str}`
+  return `${str} ${code}`
 }
 
 const BAR_COLORS = [
@@ -35,7 +28,7 @@ const BAR_COLORS = [
 const WIDTHS = ['w-full', 'w-1/2', 'w-1/3', 'w-1/4']
 
 export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Props) {
-  const { amount, symbol } = parseFare(taxiFare)
+  const { amount, code } = parseFare(taxiFare)
   if (!amount) return null
 
   const rows = [1, 2, 3, 4].map((n) => ({
@@ -67,8 +60,8 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
               </div>
 
               {/* Price always rendered to the right, never clipped */}
-              <span className="text-slate-800 text-sm font-bold shrink-0 w-20 text-right">
-                {formatPrice(price, symbol)}<span className="text-slate-400 font-normal text-xs"> p.p.</span>
+              <span className="text-slate-800 text-sm font-bold shrink-0 w-28 text-right whitespace-nowrap">
+                {formatPrice(price, code)}<span className="text-slate-400 font-normal text-xs"> p.p.</span>
               </span>
             </div>
           </div>
