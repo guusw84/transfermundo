@@ -226,7 +226,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* 3. Rental car block */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+            <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
@@ -260,7 +260,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* Car rental widget */}
-            <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-4">
+            <h3 className="text-lg font-bold text-slate-700 mb-4">
               Compare local rates and secure your rental car
             </h3>
             <EasyTerraWidget iata={airport.iata} />
