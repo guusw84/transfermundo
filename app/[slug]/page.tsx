@@ -245,9 +245,14 @@ export default async function AirportPage({ params }: Props) {
                     per day
                   </p>
                 </div>
-                <button className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0">
+                <a
+                  href="https://www.rentalcars.com/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0"
+                >
                   Book rental car →
-                </button>
+                </a>
               </div>
               <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex gap-2.5">
                 <span className="text-slate-400 text-base shrink-0 mt-0.5">🚗</span>
@@ -392,9 +397,14 @@ export default async function AirportPage({ params }: Props) {
                       per day
                     </p>
                   </div>
-                  <button className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0">
+                  <a
+                  href="https://www.rentalcars.com/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0"
+                >
                     Book rental car →
-                  </button>
+                  </a>
                 </div>
                 <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex gap-2.5">
                   <span className="text-slate-400 text-base shrink-0 mt-0.5">🚗</span>
