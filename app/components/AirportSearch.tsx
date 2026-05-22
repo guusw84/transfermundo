@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 interface AirportItem {
   slug: string
@@ -16,6 +16,7 @@ export default function AirportSearch({ airports }: { airports: AirportItem[] })
   const [open, setOpen] = useState(false)
   const [highlighted, setHighlighted] = useState(-1)
   const router = useRouter()
+  const searchParams = useSearchParams()
   const inputRef = useRef<HTMLInputElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
 
@@ -37,9 +38,10 @@ export default function AirportSearch({ airports }: { airports: AirportItem[] })
     (slug: string) => {
       setOpen(false)
       setQuery('')
-      router.push(`/${slug}`)
+      const partner = searchParams.get('partner')
+      router.push(partner ? `/${slug}?partner=${partner}` : `/${slug}`)
     },
-    [router]
+    [router, searchParams]
   )
 
   useEffect(() => {

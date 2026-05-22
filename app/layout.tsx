@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
+import PartnerBanner from "@/app/components/PartnerBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,7 +39,12 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body suppressHydrationWarning className="min-h-full flex flex-col">{children}</body>
+      <body suppressHydrationWarning className="min-h-full flex flex-col">
+        <Suspense fallback={null}>
+          <PartnerBanner />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }

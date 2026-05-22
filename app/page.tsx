@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Suspense } from 'react'
 import AirportSearch from '@/app/components/AirportSearch'
+import AirportCardGrid from '@/app/components/AirportCardGrid'
 import { getAirports } from '@/lib/airports'
 
 export const metadata: Metadata = {
@@ -11,6 +12,15 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const airports = getAirports()
+  const cardData = airports.map((a) => ({
+    slug: a.slug,
+    name: a.name,
+    iata: a.iata,
+    country: a.country,
+    googleScore: a.googleScore,
+    destinations: a.destinations.map((d) => d.name),
+  }))
+
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       {/* Navbar */}
@@ -34,7 +44,7 @@ export default function HomePage() {
           Your airport arrival guide
         </p>
         <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
-          From the airport to the city - we'll guide you!
+          From the airport to the city - we&apos;ll guide you!
         </h1>
         <p className="relative z-10 text-blue-200 text-lg max-w-xl mb-10">
           How to reach the city centre? Everything you need to know about public transport, bus services,
@@ -47,45 +57,18 @@ export default function HomePage() {
 
         {/* Search — extra bottom padding gives the absolute dropdown room to hang below the section */}
         <div className="relative z-10 w-full flex justify-center overflow-visible pb-20">
-          <AirportSearch airports={airports.map((a) => ({ slug: a.slug, name: a.name, iata: a.iata, country: a.country }))} />
+          <Suspense fallback={null}>
+            <AirportSearch airports={airports.map((a) => ({ slug: a.slug, name: a.name, iata: a.iata, country: a.country }))} />
+          </Suspense>
         </div>
       </section>
 
       {/* Airport cards */}
       <main className="max-w-5xl mx-auto w-full px-4 py-12">
         <h2 className="text-xl font-bold text-slate-700 mb-6">Browse all airports</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {airports.map((airport) => (
-            <Link
-              key={airport.slug}
-              href={`/${airport.slug}`}
-              className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-blue-200 transition-all group"
-            >
-              <div className="flex items-start justify-between mb-2">
-                <span className="bg-blue-100 text-blue-700 text-sm font-bold px-2.5 py-1 rounded-lg">
-                  {airport.iata}
-                </span>
-                <span className="text-slate-400 text-xs">{airport.country}</span>
-              </div>
-              <h3 className="font-semibold text-slate-800 text-base group-hover:text-blue-700 transition-colors leading-snug">
-                {airport.name}
-              </h3>
-              <p className="text-slate-500 text-xs mt-2">
-                {airport.destinations.length === 1 ? 'Destination' : 'Destinations'}: {airport.destinations.map((d) => d.name).join(', ')}
-              </p>
-              <div className="mt-3 flex items-center justify-between">
-                <span className="text-yellow-500 text-sm">
-                  {'★'.repeat(Math.round(airport.googleScore))}
-                  {'☆'.repeat(5 - Math.round(airport.googleScore))}
-                  <span className="text-slate-500 text-xs ml-1">{airport.googleScore.toFixed(1)}</span>
-                </span>
-                <span className="text-blue-600 text-xs font-medium group-hover:underline">
-                  View guide →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <Suspense fallback={null}>
+          <AirportCardGrid airports={cardData} />
+        </Suspense>
       </main>
 
       {/* Footer */}
