@@ -5,6 +5,7 @@ import { getAirports } from '@/lib/airports'
 import type { Airport, Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
 import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
+import EasyTerraWidget from '@/app/components/EasyTerraWidget'
 
 const airports = getAirports()
 
@@ -257,6 +258,12 @@ export default async function AirportPage({ params }: Props) {
                 </p>
               </div>
             </div>
+
+            {/* Car rental widget */}
+            <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-4">
+              Compare local rates and secure your rental car
+            </h3>
+            <EasyTerraWidget iata={airport.iata} />
 
             {/* Transport option cards */}
             {dest.transportOptions.length > 0 && (
