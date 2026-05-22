@@ -273,7 +273,7 @@ export default async function AirportPage({ params }: Props) {
                       </span>
                     </div>
                     <p className="font-bold text-slate-800 text-base">
-                      Travel time to {dest.cityCenter}: {dest.taxi.time}
+                      Travel time to {dest.cityCenter} (city centre) is {dest.taxi.time}.
                     </p>
                     <p className="text-slate-500 text-sm mt-1">
                       Fare: <strong className="text-slate-700">{dest.taxi.fare}</strong> (3–4 persons max)
