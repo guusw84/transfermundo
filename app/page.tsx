@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import AirportSearch from '@/app/components/AirportSearch'
 import AirportCardGrid from '@/app/components/AirportCardGrid'
+import NavBrand from '@/app/components/NavBrand'
 import { getAirports } from '@/lib/airports'
 
 export const metadata: Metadata = {
@@ -26,9 +27,9 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="bg-blue-700 text-white px-4 py-3">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <span className="text-xl font-bold tracking-tight">
-            Transfer<span className="text-blue-300">Mundo</span>
-          </span>
+          <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-300">Mundo</span></span>}>
+            <NavBrand />
+          </Suspense>
           <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
         </div>
       </nav>

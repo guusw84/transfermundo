@@ -7,7 +7,7 @@ import type { Airport, Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
 import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
 import EasyTerraWidget from '@/app/components/EasyTerraWidget'
-import HomeLink from '@/app/components/HomeLink'
+import NavBrand from '@/app/components/NavBrand'
 
 const airports = getAirports()
 
@@ -68,9 +68,7 @@ export default async function AirportPage({ params }: Props) {
       <nav className="bg-blue-700 text-white px-4 py-3 sticky top-0 z-50 shadow-md">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-300">Mundo</span></span>}>
-            <HomeLink className="text-xl font-bold tracking-tight hover:opacity-90 transition">
-              Transfer<span className="text-blue-300">Mundo</span>
-            </HomeLink>
+            <NavBrand />
           </Suspense>
           <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
         </div>
