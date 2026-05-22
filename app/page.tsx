@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import AirportSearch from '@/app/components/AirportSearch'
 import AirportCardGrid from '@/app/components/AirportCardGrid'
 import NavBrand from '@/app/components/NavBrand'
+import PartnerHero from '@/app/components/PartnerHero'
 import { getAirports } from '@/lib/airports'
 
 export const metadata: Metadata = {
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const airports = getAirports()
+  const searchAirports = airports.map((a) => ({ slug: a.slug, name: a.name, iata: a.iata, country: a.country }))
   const cardData = airports.map((a) => ({
     slug: a.slug,
     name: a.name,
@@ -34,35 +35,19 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section
-        className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center"
-        style={{ backgroundImage: "url('/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      {/* Hero — client component handles partner-specific background swap */}
+      <Suspense
+        fallback={
+          <section
+            className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center"
+            style={{ backgroundImage: "url('/hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+          >
+            <div className="absolute inset-0 bg-blue-900/70" aria-hidden="true" />
+          </section>
+        }
       >
-        {/* Dark overlay so text remains readable */}
-        <div className="absolute inset-0 bg-blue-900/70" aria-hidden="true" />
-        <p className="relative z-10 text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
-          Your airport arrival guide
-        </p>
-        <h1 className="relative z-10 text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl mb-3">
-          From the airport to the city - we&apos;ll guide you!
-        </h1>
-        <p className="relative z-10 text-blue-200 text-lg max-w-xl mb-10">
-          How to reach the city centre? Everything you need to know about public transport, bus services,
-          taxi, car rental and more at your destination airport. Explore the options and book!
-        </p>
-
-        <p className="relative z-10 text-blue-300 text-xs mb-4">
-          Currently covering {airports.length} airports in Europe
-        </p>
-
-        {/* Search — extra bottom padding gives the absolute dropdown room to hang below the section */}
-        <div className="relative z-10 w-full flex justify-center overflow-visible pb-20">
-          <Suspense fallback={null}>
-            <AirportSearch airports={airports.map((a) => ({ slug: a.slug, name: a.name, iata: a.iata, country: a.country }))} />
-          </Suspense>
-        </div>
-      </section>
+        <PartnerHero airportCount={airports.length} airports={searchAirports} />
+      </Suspense>
 
       {/* Airport cards */}
       <main className="max-w-5xl mx-auto w-full px-4 py-12">

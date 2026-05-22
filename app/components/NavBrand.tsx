@@ -23,7 +23,7 @@ export default function NavBrand() {
   return (
     <Link href={href} className="hover:opacity-90 transition flex items-center">
       {config ? (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           {!imgFailed ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
