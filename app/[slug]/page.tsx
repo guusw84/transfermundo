@@ -259,11 +259,15 @@ export default async function AirportPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Car rental widget */}
-            <h3 className="text-lg font-bold text-slate-700 mb-4">
-              Compare local rates and secure your rental car
-            </h3>
-            <EasyTerraWidget iata={airport.iata} />
+            {/* Car rental widget — first destination only */}
+            {di === 0 && (
+              <>
+                <h3 className="text-lg font-bold text-slate-700 mb-4">
+                  Compare local rates and secure your rental car
+                </h3>
+                <EasyTerraWidget iata={airport.iata} />
+              </>
+            )}
 
             {/* Transport option cards */}
             {dest.transportOptions.length > 0 && (
