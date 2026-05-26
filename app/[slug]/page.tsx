@@ -8,8 +8,8 @@ import {
   TruckIcon,
   UserGroupIcon,
   CheckBadgeIcon,
-  ArrowRightIcon,
 } from '@heroicons/react/24/outline'
+import TransportIcon from '@/app/components/TransportIcon'
 import { getAirports } from '@/lib/airports'
 import type { Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
@@ -328,7 +328,7 @@ export default async function AirportPage({ params }: Props) {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-900 text-xs font-semibold px-2.5 py-1 rounded-md">
-                          <ArrowRightIcon className="w-3 h-3" />
+                          <TransportIcon type={opt.type} />
                           {opt.type}
                         </span>
                         {isEcoFriendly(opt.type) && (
