@@ -1,5 +1,6 @@
 import {
   CarTaxiFront,
+  CarFront,
   BusFront,
   TrainFront,
   SquareM,
@@ -14,8 +15,9 @@ const cls = 'stroke-[1.5] text-slate-500'
 
 function BaseIcon({ k }: { k: string }) {
   const key = k.trim().toLowerCase()
-  if (key === 'taxi')    return <CarTaxiFront    size={18} className={cls} />
-  if (key === 'bus')     return <BusFront         size={18} className={cls} />
+  if (key === 'taxi')        return <CarTaxiFront size={18} className={cls} />
+  if (key === 'car rental')  return <CarFront     size={18} className={cls} />
+  if (key === 'bus')         return <BusFront     size={18} className={cls} />
   if (key === 'train')   return <TrainFront       size={18} className={cls} />
   if (key === 'metro')   return <SquareM          size={18} className={cls} />
   if (key === 's-bahn')  return <TrainFrontTunnel size={18} className={cls} />
