@@ -1,9 +1,17 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
+import {
+  BoltIcon,
+  BanknotesIcon,
+  MapPinIcon,
+  TruckIcon,
+  UserGroupIcon,
+  CheckBadgeIcon,
+  ArrowRightIcon,
+} from '@heroicons/react/24/outline'
 import { getAirports } from '@/lib/airports'
-import type { Airport, Destination, TransportOption } from '@/lib/airports'
+import type { Destination, TransportOption } from '@/lib/airports'
 import GYGWidget from '@/app/components/GYGWidget'
 import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
 import EasyTerraWidget from '@/app/components/EasyTerraWidget'
@@ -25,19 +33,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${airport.name} (${airport.iata}) Transport Guide – TransferMundo`,
     description: `How to get from ${airport.name} to the city centre. Compare fastest and cheapest transport options: train, bus, metro, taxi and rental car.`,
   }
-}
-
-function transportBadgeStyle(_type: string): string {
-  return 'bg-indigo-50 text-indigo-900'
-}
-
-function transportIcon(type: string): string {
-  const t = type.toLowerCase()
-  if (t.includes('train')) return '🚆'
-  if (t.includes('bus') && t.includes('metro')) return '🚌🚇'
-  if (t.includes('bus')) return '🚌'
-  if (t.includes('metro') || t.includes('s-bahn') || t.includes('u-bahn')) return '🚇'
-  return '🚌'
 }
 
 function hasCheapest(dest: Destination): boolean {
@@ -64,62 +59,61 @@ export default async function AirportPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans" suppressHydrationWarning>
+
       {/* Navbar */}
-      <nav className="bg-blue-700 text-white px-4 py-3 sticky top-0 z-50 shadow-md">
+      <nav className="bg-slate-900 text-white px-4 py-3 sticky top-0 z-50 border-b border-slate-800">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-300">Mundo</span></span>}>
+          <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-400">Mundo</span></span>}>
             <NavBrand />
           </Suspense>
-          <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
+          <span className="text-slate-400 text-sm hidden sm:block">Get ready now!</span>
         </div>
       </nav>
 
       {/* Hero */}
-      <header className="bg-gradient-to-br from-blue-700 to-blue-900 text-white">
+      <header className="bg-[#0f172a] text-white">
         <div className="max-w-5xl mx-auto px-4 py-10 md:py-14">
-          <p className="text-blue-300 text-sm font-medium mb-1 uppercase tracking-wider">
+          <p className="text-slate-400 text-xs font-medium mb-2 uppercase tracking-widest">
             {airport.continent} · {airport.country}
           </p>
           <div className="flex items-start justify-between gap-4">
             <div>
-            <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">{airport.name}</h1>
-            <p className="text-blue-300 mt-1 text-sm">
-              IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
-              ICAO: <strong className="text-white">{airport.icao}</strong>
-            </p>
-            <div className="mt-3 inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-xl px-3 py-1.5">
-              <span className="text-blue-200 text-xs font-medium">
-                📍 {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:
-              </span>
-              <span className="text-white font-bold text-sm">
-                {airport.destinations.map((d) => d.name).join(', ')}
-              </span>
-            </div>
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">{airport.name}</h1>
+              <p className="text-slate-400 mt-1 text-sm">
+                IATA: <strong className="text-white">{airport.iata}</strong> &nbsp;·&nbsp;
+                ICAO: <strong className="text-white">{airport.icao}</strong>
+              </p>
+              <div className="mt-3 inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-md px-3 py-1.5">
+                <MapPinIcon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <span className="text-slate-400 text-xs font-medium">
+                  {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:
+                </span>
+                <span className="text-white font-semibold text-sm">
+                  {airport.destinations.map((d) => d.name).join(', ')}
+                </span>
+              </div>
             </div>
             <div className="hidden md:block shrink-0 text-right" suppressHydrationWarning>
-              <span className="inline-flex items-center gap-1.5 bg-white/15 border border-white/25 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                ✔ Verified Data
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 text-white text-xs font-semibold px-2.5 py-1 rounded-md">
+                <CheckBadgeIcon className="w-3.5 h-3.5 text-slate-300" />
+                Verified Data
               </span>
-              <p className="text-blue-300 text-xs mt-1" suppressHydrationWarning>Last updated: {lastUpdatedLabel()}</p>
+              <p className="text-slate-400 text-xs mt-1" suppressHydrationWarning>Last updated: {lastUpdatedLabel()}</p>
             </div>
           </div>
+
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-            <div className="bg-white/10 px-4 py-2 rounded-xl">
-              <span className="text-blue-300 text-xs block mb-0.5">Location</span>
-              <span className="font-semibold">{airport.location}</span>
-            </div>
-            <div className="bg-white/10 px-4 py-2 rounded-xl">
-              <span className="text-blue-300 text-xs block mb-0.5">Number of terminals</span>
-              <span className="font-semibold">{airport.terminals}</span>
-            </div>
-            <div className="bg-white/10 px-4 py-2 rounded-xl">
-              <span className="text-blue-300 text-xs block mb-0.5">Passengers</span>
-              <span className="font-semibold">{airport.passengers2023}</span>
-            </div>
-            <div className="bg-white/10 px-4 py-2 rounded-xl">
-              <span className="text-blue-300 text-xs block mb-0.5">Reviews</span>
-              <span className="font-semibold">{airport.googleScore.toFixed(1)} ★ / 5.0 · {airport.googleReviews}</span>
-            </div>
+            {[
+              { label: 'Location', value: airport.location },
+              { label: 'Terminals', value: airport.terminals },
+              { label: 'Passengers', value: airport.passengers2023 },
+              { label: 'Reviews', value: `${airport.googleScore.toFixed(1)} ★ / 5.0 · ${airport.googleReviews}` },
+            ].map(({ label, value }) => (
+              <div key={label} className="bg-white/10 border border-white/10 px-4 py-2.5 rounded-md">
+                <span className="text-slate-400 text-xs block mb-0.5">{label}</span>
+                <span className="font-semibold text-sm">{value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </header>
@@ -137,16 +131,16 @@ export default async function AirportPage({ params }: Props) {
         </div>
       )}
 
-
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-4 py-10 space-y-14">
         {airport.destinations.map((dest, di) => (
           <section key={di} aria-labelledby={`dest-heading-${di}`}>
+
             {/* Destination header */}
             <div className="mb-6">
               <h2
                 id={`dest-heading-${di}`}
-                className="text-2xl md:text-3xl font-bold text-slate-800"
+                className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900"
               >
                 {airport.name} → {dest.name}
               </h2>
@@ -164,63 +158,70 @@ export default async function AirportPage({ params }: Props) {
               iata={airport.iata}
             />
 
-            {/* 2. Travel expenses title + Fastest / Cheapest / Door to door */}
-            <h3 className="font-semibold text-slate-700 text-sm uppercase tracking-wide mb-3">
+            {/* 2. Travel expenses title + comparison cards */}
+            <h3 className="font-semibold tracking-tight text-slate-700 text-sm uppercase tracking-wide mb-3">
               Travel expenses to/from {dest.name}
             </h3>
             <div className={`grid grid-cols-1 gap-4 mb-6 ${hasCheapest(dest) ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
-              <div className="bg-white rounded-2xl border border-blue-100 p-5 flex flex-col gap-2">
-                <span className="inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
-                  ⚡ Fastest
+
+              {/* Fastest */}
+              <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
+                <span className="inline-flex items-center gap-1.5 bg-slate-800 text-white text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
+                  <BoltIcon className="w-3.5 h-3.5" />
+                  Fastest
                 </span>
-                <p className="text-slate-800 font-bold text-lg leading-snug">{dest.fastest.mode}</p>
+                <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">{dest.fastest.mode}</p>
                 <p className="text-slate-500 text-sm">{dest.fastest.time}</p>
-                <p className="text-blue-700 font-semibold text-base">{dest.fastest.price}</p>
+                <p className="text-indigo-700 font-semibold text-base">{dest.fastest.price}</p>
                 <a
                   href={dest.fastest.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-auto font-semibold text-sm px-4 py-2 rounded-xl transition text-center ${
+                  className={`mt-auto font-semibold text-sm px-4 py-2 rounded-md transition text-center ${
                     dest.fastest.mode === 'Taxi'
-                      ? 'bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-yellow-900'
-                      : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white'
+                      ? 'bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900'
+                      : 'bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white'
                   }`}
                 >
                   {dest.fastest.mode === 'Taxi' ? 'Book taxi →' : 'Buy tickets →'}
                 </a>
               </div>
 
+              {/* Cheapest */}
               {hasCheapest(dest) && (
-                <div className="bg-white rounded-2xl border border-green-100 p-5 flex flex-col gap-2">
-                  <span className="inline-flex items-center gap-1.5 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full w-fit">
-                    💰 Cheapest
+                <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
+                  <span className="inline-flex items-center gap-1.5 bg-emerald-700 text-white text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
+                    <BanknotesIcon className="w-3.5 h-3.5" />
+                    Cheapest
                   </span>
-                  <p className="text-slate-800 font-bold text-lg leading-snug">{dest.cheapest.mode}</p>
+                  <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">{dest.cheapest.mode}</p>
                   <p className="text-slate-500 text-sm">{dest.cheapest.time}</p>
-                  <p className="text-green-700 font-semibold text-base">{dest.cheapest.price}</p>
+                  <p className="text-emerald-800 font-semibold text-base">{dest.cheapest.price}</p>
                   <a
                     href={dest.cheapest.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold text-sm px-4 py-2 rounded-xl transition text-center"
+                    className="mt-auto bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-semibold text-sm px-4 py-2 rounded-md transition text-center"
                   >
                     Buy tickets →
                   </a>
                 </div>
               )}
 
-              <div className="bg-white rounded-2xl border border-yellow-100 p-5 flex flex-col gap-2">
-                <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full w-fit">
-                  🚕 Door to door
+              {/* Door to door */}
+              <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
+                <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
+                  <MapPinIcon className="w-3.5 h-3.5" />
+                  Door to door
                 </span>
-                <p className="text-slate-800 font-bold text-lg leading-snug">Taxi · Convenience and Time Saving</p>
+                <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">Taxi · Convenience and Time Saving</p>
                 <p className="text-slate-500 text-sm">{dest.taxi.time}</p>
-                <p className="text-yellow-700 font-semibold text-base">{dest.taxi.fare}</p>
+                <p className="text-amber-700 font-semibold text-base">{dest.taxi.fare}</p>
                 <a
                   href={`https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${airport.iata}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-yellow-900 font-semibold text-sm px-4 py-2 rounded-xl transition text-center"
+                  className="mt-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2 rounded-md transition text-center"
                 >
                   Book taxi →
                 </a>
@@ -228,15 +229,16 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {/* 3. Rental car block */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-4">
+            <div className="bg-white rounded-lg border border-slate-100 p-5 mb-4 shadow-sm">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">
-                      🚗 Rental car · Flexibility
+                    <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
+                      <TruckIcon className="w-3.5 h-3.5" />
+                      Rental car · Flexibility
                     </span>
                   </div>
-                  <p className="font-bold text-slate-800 text-base">
+                  <p className="font-bold tracking-tight text-slate-900 text-base">
                     Car rental offices: {airport.carRental.location}
                   </p>
                   <p className="text-slate-500 text-sm mt-1">
@@ -251,13 +253,13 @@ export default async function AirportPage({ params }: Props) {
                   href="https://www.rentalcars.com/en/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0"
+                  className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                 >
                   Book rental car →
                 </a>
               </div>
-              <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex gap-2.5">
-                <span className="text-slate-400 text-base shrink-0 mt-0.5">🚗</span>
+              <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
+                <TruckIcon className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                 <p className="text-slate-600 text-sm leading-relaxed">
                   <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                   prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
@@ -269,7 +271,7 @@ export default async function AirportPage({ params }: Props) {
             {/* Car rental widget — first destination only */}
             {di === 0 && (
               <>
-                <h3 className="text-lg font-bold text-slate-700 mb-4">
+                <h3 className="text-lg font-bold tracking-tight text-slate-700 mb-4">
                   Compare local rates and secure your rental car
                 </h3>
                 <EasyTerraWidget iata={airport.iata} />
@@ -278,19 +280,21 @@ export default async function AirportPage({ params }: Props) {
 
             {/* Transport option cards */}
             {dest.transportOptions.length > 0 && (
-              <h3 className="text-lg font-semibold text-slate-700 mb-4">All transport options to {dest.name}</h3>
+              <h3 className="text-lg font-semibold tracking-tight text-slate-700 mb-4">All transport options to {dest.name}</h3>
             )}
             <div className="space-y-4">
+
               {/* Taxi card */}
-              <div className="bg-white rounded-2xl border border-slate-200 p-5">
+              <div className="bg-white rounded-lg border border-slate-100 p-5 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-1 rounded-full">
-                        🚕 Taxi · Door to door
+                      <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-800 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-md">
+                        <MapPinIcon className="w-3.5 h-3.5" />
+                        Taxi · Door to door
                       </span>
                     </div>
-                    <p className="font-bold text-slate-800 text-base">
+                    <p className="font-bold tracking-tight text-slate-900 text-base">
                       Travel time to {dest.cityCenter} (city centre) is {dest.taxi.time}.
                     </p>
                     <p className="text-slate-500 text-sm mt-1">
@@ -301,13 +305,13 @@ export default async function AirportPage({ params }: Props) {
                     href={`https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${airport.iata}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-yellow-900 font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0"
+                    className="bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                   >
                     Book taxi →
                   </a>
                 </div>
-                <div className="mt-4 bg-yellow-50 border border-yellow-100 rounded-xl px-4 py-3 flex gap-2.5">
-                  <span className="text-yellow-500 text-base shrink-0 mt-0.5">👥</span>
+                <div className="mt-4 bg-amber-50 border border-amber-100 rounded-md px-4 py-3 flex gap-2.5">
+                  <UserGroupIcon className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Group Travel Tip:</strong> Standard taxis (sedan) comfortably
                     accommodate up to 4 passengers. Splitting the cost between 3 or 4 passengers makes a taxi
@@ -319,25 +323,21 @@ export default async function AirportPage({ params }: Props) {
 
               {/* Public transport cards */}
               {dest.transportOptions.length > 0 && dest.transportOptions.map((opt, oi) => (
-                <div
-                  key={oi}
-                  className="bg-white rounded-2xl border border-slate-200 p-5"
-                >
+                <div key={oi} className="bg-white rounded-lg border border-slate-100 p-5 shadow-sm">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5">
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
-                        <span
-                          className={`${transportBadgeStyle(opt.type)} text-xs font-semibold px-2.5 py-1 rounded-full`}
-                        >
-                          {transportIcon(opt.type)} {opt.type}
+                        <span className="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-900 text-xs font-semibold px-2.5 py-1 rounded-md">
+                          <ArrowRightIcon className="w-3 h-3" />
+                          {opt.type}
                         </span>
                         {isEcoFriendly(opt.type) && (
-                          <span className="inline-flex items-center gap-1 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-2 py-0.5 rounded-full">
-                            🌿 Eco-friendly
+                          <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded-md">
+                            Low carbon
                           </span>
                         )}
                       </div>
-                      <p className="font-bold text-slate-800 text-xl leading-snug">{opt.serviceName}</p>
+                      <p className="font-bold tracking-tight text-slate-900 text-xl leading-snug">{opt.serviceName}</p>
                       <p className="text-slate-500 text-sm mt-0.5">Operated by {opt.operator}</p>
 
                       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
@@ -350,7 +350,7 @@ export default async function AirportPage({ params }: Props) {
 
                     <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between lg:justify-start gap-4 lg:min-w-[130px]">
                       <div className="text-left lg:text-right">
-                        <p className="text-2xl font-extrabold text-slate-800">{opt.priceAdult}</p>
+                        <p className="text-2xl font-extrabold tracking-tight text-slate-900">{opt.priceAdult}</p>
                         <p className="text-slate-400 text-xs">adults · one-way</p>
                         <p className="text-slate-600 text-sm mt-0.5">
                           {opt.priceChild} <span className="text-slate-400">children</span>
@@ -361,7 +361,7 @@ export default async function AirportPage({ params }: Props) {
                           href={opt.buyTicketsLink.startsWith('http') ? opt.buyTicketsLink : opt.timetableLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-xl transition text-center"
+                          className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold px-4 py-2 rounded-md transition text-center"
                         >
                           Buy tickets →
                         </a>
@@ -369,7 +369,7 @@ export default async function AirportPage({ params }: Props) {
                           href={opt.timetableLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded-xl transition text-center"
+                          className="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded-md transition text-center"
                         >
                           Timetable →
                         </a>
@@ -380,15 +380,16 @@ export default async function AirportPage({ params }: Props) {
               ))}
 
               {/* Car rental card */}
-              <div className="bg-white rounded-2xl border border-slate-200 p-5">
+              <div className="bg-white rounded-lg border border-slate-100 p-5 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">
-                        🚗 Rental car · Flexibility
+                      <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
+                        <TruckIcon className="w-3.5 h-3.5" />
+                        Rental car · Flexibility
                       </span>
                     </div>
-                    <p className="font-bold text-slate-800 text-base">
+                    <p className="font-bold tracking-tight text-slate-900 text-base">
                       Car rental offices: {airport.carRental.location}
                     </p>
                     <p className="text-slate-500 text-sm mt-1">
@@ -400,20 +401,20 @@ export default async function AirportPage({ params }: Props) {
                     </p>
                   </div>
                   <a
-                  href="https://www.rentalcars.com/en/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shrink-0"
-                >
+                    href="https://www.rentalcars.com/en/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
+                  >
                     Book rental car →
                   </a>
                 </div>
-                <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 flex gap-2.5">
-                  <span className="text-slate-400 text-base shrink-0 mt-0.5">🚗</span>
+                <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
+                  <TruckIcon className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
-                    prices rise as availability drops. To secure the best rate and your preferred vehicle, don't wait
-                    until you land. Book your rental car now to lock in today's lower prices.
+                    prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
+                    until you land. Book your rental car now to lock in today&apos;s lower prices.
                   </p>
                 </div>
               </div>
@@ -425,11 +426,11 @@ export default async function AirportPage({ params }: Props) {
         <section aria-labelledby="general-info-heading">
           <h2
             id="general-info-heading"
-            className="text-2xl font-bold text-slate-800 mb-5"
+            className="text-2xl font-bold tracking-tight text-slate-900 mb-5"
           >
             General information
           </h2>
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-5">
+          <div className="bg-white rounded-lg border border-slate-100 p-6 space-y-5 shadow-sm">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
               <InfoItem label="IATA / ICAO" value={`${airport.iata} / ${airport.icao}`} />
               <InfoItem label="Country" value={airport.country} />
@@ -451,19 +452,15 @@ export default async function AirportPage({ params }: Props) {
             </div>
 
             {airport.goodToKnow && (
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-                <p className="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">
-                  Good to know
-                </p>
+              <div className="bg-blue-50 border border-blue-100 rounded-md p-4">
+                <p className="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">Good to know</p>
                 <p className="text-slate-700 text-sm leading-relaxed">{airport.goodToKnow}</p>
               </div>
             )}
 
             {airport.moneySavingTip && (
-              <div className="bg-green-50 border border-green-100 rounded-xl p-4">
-                <p className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">
-                  Money-saving tip
-                </p>
+              <div className="bg-emerald-50 border border-emerald-100 rounded-md p-4">
+                <p className="text-xs font-bold text-emerald-700 uppercase tracking-wide mb-1">Money-saving tip</p>
                 <p className="text-slate-700 text-sm leading-relaxed">{airport.moneySavingTip}</p>
               </div>
             )}
@@ -471,13 +468,11 @@ export default async function AirportPage({ params }: Props) {
         </section>
       </main>
 
-      {/* GetYourGuide activities widget — only shown when supply exists for the destination */}
       {airport.destinations[0]?.gygQuery && (
         <GYGWidget city={airport.destinations[0].gygQuery} />
       )}
 
-      {/* Footer */}
-      <footer className="bg-slate-800 text-slate-400 text-center py-8 mt-6 text-sm">
+      <footer className="bg-slate-900 text-slate-400 text-center py-8 mt-6 text-sm border-t border-slate-800">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
         <p suppressHydrationWarning>© {new Date().getFullYear()} · Get ready now!</p>
       </footer>
@@ -485,20 +480,11 @@ export default async function AirportPage({ params }: Props) {
   )
 }
 
-
-function InfoItem({
-  label,
-  value,
-  highlight,
-}: {
-  label: string
-  value: string
-  highlight?: boolean
-}) {
+function InfoItem({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
     <div>
       <span className="text-slate-400 text-xs uppercase tracking-wide block mb-0.5">{label}</span>
-      <span className={`${highlight ? 'font-semibold text-slate-800' : 'text-slate-700'} text-sm`}>
+      <span className={`${highlight ? 'font-semibold text-slate-900' : 'text-slate-700'} text-sm`}>
         {value}
       </span>
     </div>

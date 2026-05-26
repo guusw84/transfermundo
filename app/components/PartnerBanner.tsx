@@ -8,9 +8,9 @@ export default function PartnerBanner() {
   if (!partner) return null
 
   return (
-    <div className="bg-slate-900 text-white text-xs text-center py-2 px-4">
-      ⚙️ White Label Preview: Partner Mode Active —{' '}
-      <strong className="uppercase">{partner}</strong>
+    <div className="bg-indigo-950 text-indigo-300 text-xs text-center py-2 px-4 border-b border-indigo-900">
+      White Label Preview · Partner Mode Active —{' '}
+      <strong className="text-white uppercase">{partner}</strong>
     </div>
   )
 }

@@ -8,7 +8,7 @@ import { PARTNERS } from '@/lib/partners'
 function TransferMundoText() {
   return (
     <span className="text-xl font-bold tracking-tight">
-      Transfer<span className="text-blue-300">Mundo</span>
+      Transfer<span className="text-blue-400">Mundo</span>
     </span>
   )
 }

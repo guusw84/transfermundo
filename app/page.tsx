@@ -26,12 +26,12 @@ export default function HomePage() {
   return (
     <div className="min-h-dvh flex flex-col bg-slate-50 font-sans">
       {/* Navbar */}
-      <nav className="bg-blue-700 text-white px-4 py-3">
+      <nav className="bg-slate-900 text-white px-4 py-3 border-b border-slate-800">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-300">Mundo</span></span>}>
+          <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-400">Mundo</span></span>}>
             <NavBrand />
           </Suspense>
-          <span className="text-blue-200 text-sm hidden sm:block">Get ready now!</span>
+          <span className="text-slate-400 text-sm hidden sm:block">Get ready now!</span>
         </div>
       </nav>
 

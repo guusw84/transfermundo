@@ -30,7 +30,7 @@ export default function PartnerHero({
       className="relative text-white flex flex-col items-center justify-center px-4 py-20 md:py-28 text-center"
       style={{ backgroundImage: `url('${bgImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-      <div className="absolute inset-0 bg-blue-900/70" aria-hidden="true" />
+      <div className="absolute inset-0 bg-slate-900/75" aria-hidden="true" />
       <p className="relative z-10 text-blue-300 text-sm font-semibold uppercase tracking-widest mb-4">
         Your airport arrival guide
       </p>

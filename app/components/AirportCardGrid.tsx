@@ -26,15 +26,15 @@ export default function AirportCardGrid({ airports }: { airports: AirportItem[] 
         <Link
           key={airport.slug}
           href={href(airport.slug)}
-          className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-blue-200 transition-all group"
+          className="bg-white rounded-lg border border-slate-200 shadow-sm p-5 hover:shadow-md hover:border-indigo-200 transition-all group"
         >
           <div className="flex items-start justify-between mb-2">
-            <span className="bg-blue-100 text-blue-700 text-sm font-bold px-2.5 py-1 rounded-lg">
+            <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded-md tracking-wide">
               {airport.iata}
             </span>
             <span className="text-slate-400 text-xs">{airport.country}</span>
           </div>
-          <h3 className="font-semibold text-slate-800 text-base group-hover:text-blue-700 transition-colors leading-snug">
+          <h3 className="font-semibold tracking-tight text-slate-900 text-base group-hover:text-indigo-700 transition-colors leading-snug mt-2">
             {airport.name}
           </h3>
           <p className="text-slate-500 text-xs mt-2">
@@ -42,12 +42,12 @@ export default function AirportCardGrid({ airports }: { airports: AirportItem[] 
             {airport.destinations.join(', ')}
           </p>
           <div className="mt-3 flex items-center justify-between">
-            <span className="text-yellow-500 text-sm">
+            <span className="text-amber-400 text-sm">
               {'★'.repeat(Math.round(airport.googleScore))}
               {'☆'.repeat(5 - Math.round(airport.googleScore))}
-              <span className="text-slate-500 text-xs ml-1">{airport.googleScore.toFixed(1)}</span>
+              <span className="text-slate-400 text-xs ml-1">{airport.googleScore.toFixed(1)}</span>
             </span>
-            <span className="text-blue-600 text-xs font-medium group-hover:underline">
+            <span className="text-indigo-600 text-xs font-medium group-hover:underline">
               View guide →
             </span>
           </div>
