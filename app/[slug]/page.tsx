@@ -1,14 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import {
-  BoltIcon,
-  BanknotesIcon,
-  MapPinIcon,
-  TruckIcon,
-  UserGroupIcon,
-  CheckBadgeIcon,
-} from '@heroicons/react/24/outline'
+import { Zap, Banknote, MapPin, Truck, Users, BadgeCheck } from 'lucide-react'
 import TransportIcon from '@/app/components/TransportIcon'
 import { getAirports } from '@/lib/airports'
 import type { Destination, TransportOption } from '@/lib/airports'
@@ -84,7 +77,7 @@ export default async function AirportPage({ params }: Props) {
                 ICAO: <strong className="text-white">{airport.icao}</strong>
               </p>
               <div className="mt-3 inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-md px-3 py-1.5">
-                <MapPinIcon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                 <span className="text-slate-400 text-xs font-medium">
                   {airport.destinations.length === 1 ? 'Popular nearby destination' : 'Popular nearby destinations'}:
                 </span>
@@ -95,7 +88,7 @@ export default async function AirportPage({ params }: Props) {
             </div>
             <div className="hidden md:block shrink-0 text-right" suppressHydrationWarning>
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 text-white text-xs font-semibold px-2.5 py-1 rounded-md">
-                <CheckBadgeIcon className="w-3.5 h-3.5 text-slate-300" />
+                <BadgeCheck className="w-3.5 h-3.5 text-slate-300" />
                 Verified Data
               </span>
               <p className="text-slate-400 text-xs mt-1" suppressHydrationWarning>Last updated: {lastUpdatedLabel()}</p>
@@ -167,7 +160,7 @@ export default async function AirportPage({ params }: Props) {
               {/* Fastest */}
               <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
                 <span className="inline-flex items-center gap-1.5 bg-slate-800 text-white text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
-                  <BoltIcon className="w-3.5 h-3.5" />
+                  <Zap className="w-3.5 h-3.5" />
                   Fastest
                 </span>
                 <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">{dest.fastest.mode}</p>
@@ -191,7 +184,7 @@ export default async function AirportPage({ params }: Props) {
               {hasCheapest(dest) && (
                 <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
                   <span className="inline-flex items-center gap-1.5 bg-emerald-700 text-white text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
-                    <BanknotesIcon className="w-3.5 h-3.5" />
+                    <Banknote className="w-3.5 h-3.5" />
                     Cheapest
                   </span>
                   <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">{dest.cheapest.mode}</p>
@@ -211,7 +204,7 @@ export default async function AirportPage({ params }: Props) {
               {/* Door to door */}
               <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
                 <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
-                  <MapPinIcon className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5" />
                   Door to door
                 </span>
                 <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">Taxi · Convenience and Time Saving</p>
@@ -234,7 +227,7 @@ export default async function AirportPage({ params }: Props) {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
-                      <TruckIcon className="w-3.5 h-3.5" />
+                      <Truck className="w-3.5 h-3.5" />
                       Rental car · Flexibility
                     </span>
                   </div>
@@ -259,7 +252,7 @@ export default async function AirportPage({ params }: Props) {
                 </a>
               </div>
               <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                <TruckIcon className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                <Truck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                 <p className="text-slate-600 text-sm leading-relaxed">
                   <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                   prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
@@ -290,7 +283,7 @@ export default async function AirportPage({ params }: Props) {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-800 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <MapPinIcon className="w-3.5 h-3.5" />
+                        <MapPin className="w-3.5 h-3.5" />
                         Taxi · Door to door
                       </span>
                     </div>
@@ -311,7 +304,7 @@ export default async function AirportPage({ params }: Props) {
                   </a>
                 </div>
                 <div className="mt-4 bg-amber-50 border border-amber-100 rounded-md px-4 py-3 flex gap-2.5">
-                  <UserGroupIcon className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                  <Users className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Group Travel Tip:</strong> Standard taxis (sedan) comfortably
                     accommodate up to 4 passengers. Splitting the cost between 3 or 4 passengers makes a taxi
@@ -385,7 +378,7 @@ export default async function AirportPage({ params }: Props) {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <TruckIcon className="w-3.5 h-3.5" />
+                        <Truck className="w-3.5 h-3.5" />
                         Rental car · Flexibility
                       </span>
                     </div>
@@ -410,7 +403,7 @@ export default async function AirportPage({ params }: Props) {
                   </a>
                 </div>
                 <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                  <TruckIcon className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                  <Truck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                     prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait

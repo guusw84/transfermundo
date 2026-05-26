@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { Search } from 'lucide-react'
 
 interface AirportItem {
   slug: string
@@ -80,7 +80,7 @@ export default function AirportSearch({ airports }: { airports: AirportItem[] })
   return (
     <div className="relative w-full max-w-xl">
       <div className="relative">
-        <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none stroke-[1.5]" />
         <input
           ref={inputRef}
           type="text"
