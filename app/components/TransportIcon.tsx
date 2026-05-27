@@ -15,15 +15,15 @@ const cls = 'stroke-[1.5] text-slate-500'
 
 function BaseIcon({ k }: { k: string }) {
   const key = k.trim().toLowerCase()
-  if (key === 'taxi')        return <CarTaxiFront size={18} className={cls} />
-  if (key === 'car rental')  return <CarFront     size={18} className={cls} />
-  if (key === 'bus')         return <BusFront     size={18} className={cls} />
-  if (key === 'train')   return <TrainFront       size={18} className={cls} />
-  if (key === 'metro')   return <SquareM          size={18} className={cls} />
-  if (key === 's-bahn')  return <TrainFrontTunnel size={18} className={cls} />
-  if (key === 'tram')    return <TramFront        size={18} className={cls} />
-  if (key === 'boat')    return <Ship             size={18} className={cls} />
-  if (key === 'apm')     return (
+  if (key.includes('taxi'))                    return <CarTaxiFront    size={18} className={cls} />
+  if (key.includes('rental') || key.includes('rent')) return <CarFront size={18} className={cls} />
+  if (key === 'bus')                           return <BusFront        size={18} className={cls} />
+  if (key === 'train')                         return <TrainFront      size={18} className={cls} />
+  if (key === 'metro')                         return <SquareM         size={18} className={cls} />
+  if (key === 's-bahn')                        return <TrainFrontTunnel size={18} className={cls} />
+  if (key === 'tram')                          return <TramFront       size={18} className={cls} />
+  if (key === 'boat')                          return <Ship            size={18} className={cls} />
+  if (key === 'apm')                           return (
     <div className="border border-slate-200 rounded p-0.5 inline-flex">
       <ArrowRightLeft size={13} className={cls} />
     </div>

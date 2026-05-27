@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import { Zap, Banknote, MapPin, Truck, Users, BadgeCheck } from 'lucide-react'
+import { Zap, Banknote, MapPin, CarTaxiFront, CarFront, Users, BadgeCheck } from 'lucide-react'
 import TransportIcon from '@/app/components/TransportIcon'
 import { getAirports } from '@/lib/airports'
 import type { Destination, TransportOption } from '@/lib/airports'
@@ -204,7 +204,7 @@ export default async function AirportPage({ params }: Props) {
               {/* Door to door */}
               <div className="bg-white rounded-lg border border-slate-100 p-5 flex flex-col gap-2 shadow-sm">
                 <span className="inline-flex items-center gap-1.5 bg-amber-400 text-amber-900 text-xs font-semibold px-2.5 py-1 rounded-md w-fit">
-                  <MapPin className="w-3.5 h-3.5" />
+                  <CarTaxiFront size={18} className="text-slate-500 stroke-[1.5]" />
                   Door to door
                 </span>
                 <p className="text-slate-900 font-bold tracking-tight text-lg leading-snug">Taxi · Convenience and Time Saving</p>
@@ -227,7 +227,7 @@ export default async function AirportPage({ params }: Props) {
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
-                      <Truck className="w-3.5 h-3.5" />
+                      <CarFront size={18} className="text-slate-500 stroke-[1.5]" />
                       Rental car · Flexibility
                     </span>
                   </div>
@@ -252,7 +252,7 @@ export default async function AirportPage({ params }: Props) {
                 </a>
               </div>
               <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                <Truck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                <CarFront size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                 <p className="text-slate-600 text-sm leading-relaxed">
                   <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                   prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
@@ -283,7 +283,7 @@ export default async function AirportPage({ params }: Props) {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-800 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <MapPin className="w-3.5 h-3.5" />
+                        <CarTaxiFront size={18} className="text-slate-500 stroke-[1.5]" />
                         Taxi · Door to door
                       </span>
                     </div>
@@ -378,7 +378,7 @@ export default async function AirportPage({ params }: Props) {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-md">
-                        <Truck className="w-3.5 h-3.5" />
+                        <CarFront size={18} className="text-slate-500 stroke-[1.5]" />
                         Rental car · Flexibility
                       </span>
                     </div>
@@ -403,7 +403,7 @@ export default async function AirportPage({ params }: Props) {
                   </a>
                 </div>
                 <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                  <Truck className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                  <CarFront size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                     prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
