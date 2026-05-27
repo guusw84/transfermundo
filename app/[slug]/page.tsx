@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import { Zap, Banknote, MapPin, CarTaxiFront, CarFront, Users, BadgeCheck, MessageCircleMore } from 'lucide-react'
+import { Zap, Banknote, MapPin, CarTaxiFront, CarFront, Users, BadgeCheck, MessageCircleMore, Leaf } from 'lucide-react'
 import TransportIcon from '@/app/components/TransportIcon'
 import { getAirports } from '@/lib/airports'
 import type { Destination, TransportOption } from '@/lib/airports'
@@ -254,7 +254,7 @@ export default async function AirportPage({ params }: Props) {
               <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
                 <MessageCircleMore size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
+                  <strong className="text-slate-700">Car Hire Tip:</strong>{' '}Just like airline tickets, car rental
                   prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
                   until you land. Book your rental car now to lock in today&apos;s lower prices.
                 </p>
@@ -326,7 +326,8 @@ export default async function AirportPage({ params }: Props) {
                         </span>
                         {isEcoFriendly(opt.type) && (
                           <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded-md">
-                            Low carbon
+                            <Leaf size={14} className="text-emerald-600 stroke-[1.5]" />
+                            Eco-friendly
                           </span>
                         )}
                       </div>
@@ -405,7 +406,7 @@ export default async function AirportPage({ params }: Props) {
                 <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
                   <MessageCircleMore size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
+                    <strong className="text-slate-700">Car Hire Tip:</strong>{' '}Just like airline tickets, car rental
                     prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
                     until you land. Book your rental car now to lock in today&apos;s lower prices.
                   </p>
