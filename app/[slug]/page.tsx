@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import { Zap, Banknote, MapPin, CarTaxiFront, CarFront, Users, BadgeCheck } from 'lucide-react'
+import { Zap, Banknote, MapPin, CarTaxiFront, CarFront, Users, BadgeCheck, MessageCircleMore } from 'lucide-react'
 import TransportIcon from '@/app/components/TransportIcon'
 import { getAirports } from '@/lib/airports'
 import type { Destination, TransportOption } from '@/lib/airports'
@@ -252,7 +252,7 @@ export default async function AirportPage({ params }: Props) {
                 </a>
               </div>
               <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                <CarFront size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
+                <MessageCircleMore size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                 <p className="text-slate-600 text-sm leading-relaxed">
                   <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                   prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
@@ -403,7 +403,7 @@ export default async function AirportPage({ params }: Props) {
                   </a>
                 </div>
                 <div className="mt-4 bg-slate-50 border border-slate-100 rounded-md px-4 py-3 flex gap-2.5">
-                  <CarFront size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
+                  <MessageCircleMore size={18} className="text-slate-500 stroke-[1.5] shrink-0 mt-0.5" />
                   <p className="text-slate-600 text-sm leading-relaxed">
                     <strong className="text-slate-700">Car Hire Tip:</strong> Just like airline tickets, car rental
                     prices rise as availability drops. To secure the best rate and your preferred vehicle, don&apos;t wait
