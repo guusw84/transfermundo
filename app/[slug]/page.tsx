@@ -59,7 +59,7 @@ export default async function AirportPage({ params }: Props) {
           <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-400">Mundo</span></span>}>
             <NavBrand />
           </Suspense>
-          <span className="text-slate-400 text-sm hidden sm:block">Get ready now!</span>
+          <span className="text-slate-400 text-sm hidden sm:block">Choose your airport transfer!</span>
         </div>
       </nav>
 
@@ -468,7 +468,7 @@ export default async function AirportPage({ params }: Props) {
 
       <footer className="bg-slate-900 text-slate-400 text-center py-8 mt-6 text-sm border-t border-slate-800">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p suppressHydrationWarning>© {new Date().getFullYear()} · Get ready now!</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} · Choose your airport transfer!</p>
       </footer>
     </div>
   )

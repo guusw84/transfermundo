@@ -31,7 +31,7 @@ export default function HomePage() {
           <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-400">Mundo</span></span>}>
             <NavBrand />
           </Suspense>
-          <span className="text-slate-400 text-sm hidden sm:block">Get ready now!</span>
+          <span className="text-slate-400 text-sm hidden sm:block">Choose your airport transfer!</span>
         </div>
       </nav>
 
@@ -60,7 +60,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="mt-auto bg-slate-800 text-slate-400 text-center py-8 text-sm">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p suppressHydrationWarning>© {new Date().getFullYear()} · Get ready now!</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} · Choose your airport transfer!</p>
       </footer>
     </div>
   )
