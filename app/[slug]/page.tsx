@@ -158,7 +158,7 @@ export default async function AirportPage({ params }: Props) {
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-4 py-10 space-y-14">
         {airport.destinations.map((dest, di) => (
-          <section key={di} id={`destination-${di + 1}`} aria-labelledby={`dest-heading-${di}`}>
+          <section key={di} id={`destination-${di + 1}`} aria-labelledby={`dest-heading-${di}`} className="scroll-mt-24">
 
             {/* Destination header */}
             <div className="mb-6">
