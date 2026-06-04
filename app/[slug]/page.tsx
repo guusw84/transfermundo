@@ -98,9 +98,22 @@ export default async function AirportPage({ params }: Props) {
           <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
             {[
               { label: 'Location', value: airport.location },
+              {
+                label: 'To city centre',
+                value: (() => {
+                  const d = airport.destinations[0]
+                  if (!d) return 'N/A'
+                  const km = d.distanceKm || null
+                  const mi = d.distanceMiles || null
+                  const time = d.taxi.time || null
+                  if (!km && !mi && !time) return 'N/A'
+                  const dist = km && mi ? `${km} km / ${mi.toFixed(1)} m` : km ? `${km} km` : mi ? `${mi.toFixed(1)} m` : null
+                  const parts = [dist, time ?? null].filter(Boolean)
+                  return parts.join(' - ')
+                })(),
+              },
               { label: 'Terminals', value: airport.terminals },
               { label: 'Passengers', value: airport.passengers2023 },
-              { label: 'Reviews', value: `${airport.googleScore.toFixed(1)} ★ / 5.0 · ${airport.googleReviews}` },
             ].map(({ label, value }) => (
               <div key={label} className="bg-white/10 border border-white/10 px-4 py-2.5 rounded-md">
                 <span className="text-slate-400 text-xs block mb-0.5">{label}</span>
