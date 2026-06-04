@@ -135,10 +135,30 @@ export default async function AirportPage({ params }: Props) {
         </div>
       )}
 
+      {/* Destination selector — only shown when multiple destinations exist */}
+      {airport.destinations.length > 1 && (
+        <div className="bg-white border-b border-slate-200">
+          <div className="max-w-5xl mx-auto px-4 py-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">Where are you going?</p>
+            <div className="flex flex-wrap gap-2">
+              {airport.destinations.map((dest, di) => (
+                <a
+                  key={di}
+                  href={`#destination-${di + 1}`}
+                  className="text-sm font-medium px-4 py-2 rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+                >
+                  {dest.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-4 py-10 space-y-14">
         {airport.destinations.map((dest, di) => (
-          <section key={di} aria-labelledby={`dest-heading-${di}`}>
+          <section key={di} id={`destination-${di + 1}`} aria-labelledby={`dest-heading-${di}`}>
 
             {/* Destination header */}
             <div className="mb-6">
