@@ -2,13 +2,13 @@
 
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { CheckCircle2 } from 'lucide-react'
 
 interface AirportItem {
   slug: string
   name: string
   iata: string
   country: string
-  googleScore: number
   destinations: string[]
 }
 
@@ -42,10 +42,9 @@ export default function AirportCardGrid({ airports }: { airports: AirportItem[] 
             {airport.destinations.join(', ')}
           </p>
           <div className="mt-3 flex items-center justify-between">
-            <span className="text-amber-400 text-sm">
-              {'★'.repeat(Math.round(airport.googleScore))}
-              {'☆'.repeat(5 - Math.round(airport.googleScore))}
-              <span className="text-slate-400 text-xs ml-1">{airport.googleScore.toFixed(1)}</span>
+            <span className="inline-flex items-center text-slate-500 text-xs">
+              <CheckCircle2 size={14} className="text-emerald-600 stroke-[1.5] mr-1 inline-block" />
+              Verified connections
             </span>
             <span className="text-indigo-600 text-xs font-medium group-hover:underline">
               View guide →

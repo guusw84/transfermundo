@@ -19,7 +19,6 @@ export default function HomePage() {
     name: a.name,
     iata: a.iata,
     country: a.country,
-    googleScore: a.googleScore,
     destinations: a.destinations.map((d) => d.name),
   }))
 
