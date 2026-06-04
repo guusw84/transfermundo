@@ -68,7 +68,7 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
         rel="noopener noreferrer"
         className="mt-5 w-full block bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2.5 rounded-md transition text-center"
       >
-        Book taxi →
+        Book a taxi →
       </a>
 
       <p className="mt-3 text-slate-400 text-xs text-center">
