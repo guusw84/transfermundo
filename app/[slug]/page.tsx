@@ -115,11 +115,9 @@ export default async function AirportPage({ params }: Props) {
       {airport.carRental.popular && (
         <div className="bg-amber-50 border-b border-amber-200">
           <div className="max-w-5xl mx-auto px-4 py-4 text-sm text-amber-900">
-            <span className="font-semibold">Early booking highly recommended:</span> Do you want to{' '}
-            <strong>rent a car</strong>, don&apos;t wait any longer. {airport.name} is one of{' '}
-            {airport.continent}&apos;s busiest car rental hubs. By booking ahead, you avoid long
-            queues and the steep price hikes of last-minute rentals. Compare prices and book your
-            car today!
+            <strong>Planning to rent a car?</strong> Book early to avoid limited availability and
+            higher last-minute prices during peak season at {airport.name}. Compare prices and book
+            your car today!
           </div>
         </div>
       )}
