@@ -12,6 +12,29 @@ interface AirportItem {
   destinations: string[]
 }
 
+const FLAGS: Record<string, string> = {
+  'Netherlands': '🇳🇱',
+  'Germany': '🇩🇪',
+  'Spain': '🇪🇸',
+  'France': '🇫🇷',
+  'Italy': '🇮🇹',
+  'Switzerland': '🇨🇭',
+  'United Kingdom': '🇬🇧',
+  'Belgium': '🇧🇪',
+  'Austria': '🇦🇹',
+  'Portugal': '🇵🇹',
+  'Sweden': '🇸🇪',
+  'Norway': '🇳🇴',
+  'Denmark': '🇩🇰',
+  'Finland': '🇫🇮',
+  'Poland': '🇵🇱',
+  'Czech Republic': '🇨🇿',
+  'Hungary': '🇭🇺',
+  'Greece': '🇬🇷',
+  'Turkey': '🇹🇷',
+  'United States': '🇺🇸',
+}
+
 export default function AirportCardGrid({ airports }: { airports: AirportItem[] }) {
   const searchParams = useSearchParams()
   const partner = searchParams.get('partner')
@@ -32,7 +55,7 @@ export default function AirportCardGrid({ airports }: { airports: AirportItem[] 
             <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded-md tracking-wide">
               {airport.iata}
             </span>
-            <span className="text-slate-400 text-xs">{airport.country}</span>
+            <span className="text-slate-400 text-xs">{FLAGS[airport.country] ? `${FLAGS[airport.country]} ${airport.country}` : airport.country}</span>
           </div>
           <h3 className="font-semibold tracking-tight text-slate-900 text-base group-hover:text-indigo-700 transition-colors leading-snug mt-2">
             {airport.name}
