@@ -140,7 +140,7 @@ export default async function AirportPage({ params }: Props) {
               <p className="text-slate-500 mt-1 text-sm">
                 City centre: <strong className="text-slate-700">{dest.cityCenter}</strong>
                 &nbsp;·&nbsp;{`${dest.distanceKm} km / ${dest.distanceMiles.toFixed(1)} miles`}
-                &nbsp;·&nbsp;{dest.transportOptionsCount} transport options (incl. taxi)
+                &nbsp;·&nbsp;{dest.transportOptionsCount === 1 ? '1 available transport option right now (incl. taxi)' : `${dest.transportOptionsCount} available transport options right now (incl. taxi)`}
               </p>
             </div>
 
