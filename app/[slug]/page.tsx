@@ -187,7 +187,7 @@ export default async function AirportPage({ params }: Props) {
                       : 'bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white'
                   }`}
                 >
-                  {dest.fastest.mode === 'Taxi' ? 'Book taxi →' : 'Buy tickets →'}
+                  {dest.fastest.mode === 'Taxi' ? (dest.name ? `Book a taxi to ${dest.name} →` : 'Book a taxi →') : 'Buy tickets →'}
                 </a>
               </div>
 
@@ -227,7 +227,7 @@ export default async function AirportPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="mt-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2 rounded-md transition text-center"
                 >
-                  Book taxi →
+                  {dest.name ? `Book a taxi to ${dest.name}` : 'Book a taxi'} →
                 </a>
               </div>
             </div>
@@ -311,7 +311,7 @@ export default async function AirportPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                   >
-                    Book taxi →
+                    {dest.name ? `Book a taxi to ${dest.name}` : 'Book a taxi'} →
                   </a>
                 </div>
                 <div className="mt-4 bg-amber-50 border border-amber-100 rounded-md px-4 py-3 flex gap-2.5">
