@@ -30,7 +30,7 @@ export default function HomePage() {
           <Suspense fallback={<span className="text-xl font-bold tracking-tight">Transfer<span className="text-blue-400">Mundo</span></span>}>
             <NavBrand />
           </Suspense>
-          <span className="text-slate-400 text-sm hidden sm:block">Choose your airport transfer! TEST-BUILD-2026</span>
+          <span className="text-slate-400 text-sm hidden sm:block">Choose your airport transfer!</span>
         </div>
       </nav>
 
