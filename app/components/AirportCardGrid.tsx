@@ -30,6 +30,7 @@ const FLAGS: Record<string, string> = {
   'Poland': '🇵🇱',
   'Czech Republic': '🇨🇿',
   'Hungary': '🇭🇺',
+  'Ireland': '🇮🇪',
   'Greece': '🇬🇷',
   'Turkey': '🇹🇷',
   'United States': '🇺🇸',
