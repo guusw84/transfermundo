@@ -13,7 +13,9 @@ function parseFare(fare: string): { amount: number; code: string } {
 
 function formatPrice(amount: number, code: string): string {
   const rounded = Math.round(amount * 100) / 100
-  const str = rounded % 1 === 0 ? `${rounded}` : rounded.toFixed(2)
+  const str = rounded % 1 === 0
+    ? rounded.toLocaleString('en-US')
+    : rounded.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
   return `${str} ${code}`
 }
 
