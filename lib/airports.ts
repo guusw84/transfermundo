@@ -110,7 +110,14 @@ function linkForMode(
   if (mode.toLowerCase() === 'taxi') {
     return `https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${iata}`
   }
-  return options.find((o) => o.type === mode)?.timetableLink ?? ''
+  const opt = options.find((o) => o.type === mode)
+  if (!opt) return ''
+  const code = opt.buyTicketsLink?.trim()
+  if (code && /^[A-Z]{4}$/.test(code)) {
+    return `https://book.distribusion.com/?marketingCarrierCode=${code}&currency=EUR&locale=en&retailerPartnerNumber=455363`
+  }
+  if (opt.buyTicketsLink?.startsWith('http')) return opt.buyTicketsLink
+  return opt.timetableLink ?? ''
 }
 
 function parseDestination(
