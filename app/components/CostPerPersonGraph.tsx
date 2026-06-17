@@ -5,8 +5,8 @@ interface Props {
 }
 
 function parseFare(fare: string): { amount: number; code: string } {
-  const match = fare.match(/(\d+(?:\.\d+)?)\s*([A-Z]{3})?/)
-  const amount = match ? parseFloat(match[1]) : 0
+  const match = fare.match(/([\d,]+(?:\.\d+)?)\s*([A-Z]{3})?/)
+  const amount = match ? parseFloat(match[1].replace(/,/g, '')) : 0
   const code = match?.[2] ?? 'EUR'
   return { amount, code }
 }
