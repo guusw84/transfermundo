@@ -28,6 +28,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function buyTicketsHref(buyTicketsLink: string, timetableLink: string): string {
+  if (/^[A-Z]{4}$/.test(buyTicketsLink.trim())) {
+    return `https://book.distribusion.com/?marketingCarrierCode=${buyTicketsLink.trim()}&currency=EUR&locale=en&retailerPartnerNumber=455363`
+  }
+  if (buyTicketsLink.startsWith('http')) return buyTicketsLink
+  return timetableLink
+}
+
 function hasCheapest(dest: Destination): boolean {
   const m = dest.cheapest.mode
   return Boolean(m) && m !== 'null' && m !== '0'
@@ -383,7 +391,7 @@ export default async function AirportPage({ params }: Props) {
                       </div>
                       <div className="flex flex-col gap-2 shrink-0">
                         <a
-                          href={opt.buyTicketsLink.startsWith('http') ? opt.buyTicketsLink : opt.timetableLink}
+                          href={buyTicketsHref(opt.buyTicketsLink, opt.timetableLink)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold px-4 py-2 rounded-md transition text-center"
