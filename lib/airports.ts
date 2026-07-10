@@ -110,7 +110,9 @@ function linkForMode(
   if (mode.toLowerCase() === 'taxi') {
     return `https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${iata}`
   }
-  const opt = options.find((o) => o.type === mode)
+  const opt =
+    options.find((o) => o.type === mode) ??
+    options.find((o) => mode.startsWith(o.type) || o.type.startsWith(mode))
   if (!opt) return ''
   const code = opt.buyTicketsLink?.trim()
   if (code && /^[A-Z]{4}$/.test(code)) {
