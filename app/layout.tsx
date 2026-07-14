@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import PartnerBanner from "@/app/components/PartnerBanner";
 import "./globals.css";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
           <PartnerBanner />
         </Suspense>
         {children}
+        <Analytics />
       </body>
     </html>
   );
