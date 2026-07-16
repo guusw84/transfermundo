@@ -13,9 +13,9 @@ export default function LoungePairBanner({ iata }: { iata: string }) {
               Treat yourself to an airport lounge
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Skip the noise of the departure hall. Relax in a premium airport lounge with comfortable seating,
-              complimentary food and drinks, and fast Wi-Fi — starting from just a few euros per visit.
-              Book your lounge access in advance and start your journey home in style.
+              Skip the noise of the Departures hall. Relax in a premium airport lounge with comfortable seating,
+              complimentary food and drinks, and fast WiFi. Book your lounge access in advance and skip the
+              airport rush on your way home.
             </p>
             <a
               href={`https://www.loungepair.com/at/${iata}/?ref=mundo`}
