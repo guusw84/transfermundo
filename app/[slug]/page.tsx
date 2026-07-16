@@ -9,6 +9,7 @@ import GYGWidget from '@/app/components/GYGWidget'
 import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
 import EasyTerraWidget from '@/app/components/EasyTerraWidget'
 import NavBrand from '@/app/components/NavBrand'
+import LoungePairBanner from '@/app/components/LoungePairBanner'
 
 const airports = getAirports()
 
@@ -504,6 +505,8 @@ export default async function AirportPage({ params }: Props) {
       {airport.destinations[0]?.gygQuery && (
         <GYGWidget city={airport.destinations[0].gygQuery} />
       )}
+
+      <LoungePairBanner iata={airport.iata} />
 
       <footer className="bg-slate-900 text-slate-400 text-center py-8 mt-6 text-sm border-t border-slate-800">
         <p className="font-semibold text-white mb-1">TransferMundo</p>
