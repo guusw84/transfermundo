@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 import { parse } from 'csv-parse/sync'
+import { taxiUrl, distribusionUrl } from './attribution'
 
 export interface TransportOption {
   type: string
@@ -108,16 +109,14 @@ function linkForMode(
   options: TransportOption[]
 ): string {
   if (mode.toLowerCase() === 'taxi') {
-    return `https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${iata}`
+    return taxiUrl(iata)
   }
   const opt =
     options.find((o) => o.type === mode) ??
     options.find((o) => mode.startsWith(o.type) || o.type.startsWith(mode))
   if (!opt) return ''
   const code = opt.buyTicketsLink?.trim()
-  if (code && /^[A-Z]{4}$/.test(code)) {
-    return `https://book.distribusion.com/?marketingCarrierCode=${code}&currency=EUR&locale=en&retailerPartnerNumber=455363`
-  }
+  if (code && /^[A-Z]{4}$/.test(code)) return distribusionUrl(code)
   if (opt.buyTicketsLink?.startsWith('http')) return opt.buyTicketsLink
   return opt.timetableLink ?? ''
 }

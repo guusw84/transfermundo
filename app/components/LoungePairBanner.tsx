@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { loungeUrl } from '@/lib/attribution'
 
 export default function LoungePairBanner({ iata }: { iata: string }) {
   return (
@@ -18,7 +19,7 @@ export default function LoungePairBanner({ iata }: { iata: string }) {
               airport rush on your way home.
             </p>
             <a
-              href={`https://www.loungepair.com/at/${iata}/?ref=mundo`}
+              href={loungeUrl(iata)}
               target="_blank"
               rel="noopener noreferrer"
               className="self-start bg-slate-900 hover:bg-slate-700 active:bg-slate-800 text-white font-semibold text-sm px-5 py-2.5 rounded-md transition"

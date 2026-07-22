@@ -10,6 +10,7 @@ import CostPerPersonGraph from '@/app/components/CostPerPersonGraph'
 import EasyTerraWidget from '@/app/components/EasyTerraWidget'
 import NavBrand from '@/app/components/NavBrand'
 import LoungePairBanner from '@/app/components/LoungePairBanner'
+import { taxiUrl, rentalCarUrl, buildOutboundUrl } from '@/lib/attribution'
 
 const airports = getAirports()
 
@@ -29,13 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-function buyTicketsHref(buyTicketsLink: string, timetableLink: string): string {
-  if (/^[A-Z]{4}$/.test(buyTicketsLink.trim())) {
-    return `https://book.distribusion.com/?marketingCarrierCode=${buyTicketsLink.trim()}&currency=EUR&locale=en&retailerPartnerNumber=455363`
-  }
-  if (buyTicketsLink.startsWith('http')) return buyTicketsLink
-  return timetableLink
-}
 
 function hasCheapest(dest: Destination): boolean {
   const m = dest.cheapest.mode
@@ -251,7 +245,7 @@ export default async function AirportPage({ params }: Props) {
                 <p className="text-slate-500 text-sm">{dest.taxi.time}</p>
                 <p className="text-amber-700 font-semibold text-base">{dest.taxi.fare}</p>
                 <a
-                  href={`https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${airport.iata}`}
+                  href={taxiUrl(airport.iata)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2 rounded-md transition text-center"
@@ -283,7 +277,7 @@ export default async function AirportPage({ params }: Props) {
                   </p>
                 </div>
                 <a
-                  href="https://www.rentalcars.com/en/"
+                  href={rentalCarUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
@@ -335,7 +329,7 @@ export default async function AirportPage({ params }: Props) {
                     </p>
                   </div>
                   <a
-                    href={`https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${airport.iata}`}
+                    href={taxiUrl(airport.iata)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
@@ -392,7 +386,7 @@ export default async function AirportPage({ params }: Props) {
                       </div>
                       <div className="flex flex-col gap-2 shrink-0">
                         <a
-                          href={buyTicketsHref(opt.buyTicketsLink, opt.timetableLink)}
+                          href={buildOutboundUrl(opt.buyTicketsLink, opt.timetableLink)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold px-4 py-2 rounded-md transition text-center"
@@ -435,7 +429,7 @@ export default async function AirportPage({ params }: Props) {
                     </p>
                   </div>
                   <a
-                    href="https://www.rentalcars.com/en/"
+                    href={rentalCarUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"

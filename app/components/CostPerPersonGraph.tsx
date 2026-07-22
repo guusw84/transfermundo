@@ -1,3 +1,5 @@
+import { taxiUrl } from '@/lib/attribution'
+
 interface Props {
   taxiFare: string
   airportName: string
@@ -65,7 +67,7 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
       </div>
 
       <a
-        href={`https://www.book-online-transfers.com/en/airmundo-airport-taxi?from_iata_code=${iata}`}
+        href={taxiUrl(iata)}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-5 w-full block bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2.5 rounded-md transition text-center"
