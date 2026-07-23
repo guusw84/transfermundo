@@ -17,10 +17,45 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'TransferMundo – Airport Transport Guides for Europe',
-  description:
-    'Find the best way to get from the airport to the city centre. Compare trains, buses, taxis and car rental at major European airports.',
   metadataBase: new URL('https://www.transfermundo.com'),
+  title: {
+    default: 'TransferMundo — Compare Airport Transfers, Taxis & Public Transport',
+    template: '%s | TransferMundo',
+  },
+  description:
+    'Compare every way to reach the city center from top airports. Find the fastest and cheapest trains, buses, private transfers, taxis, and car rentals.',
+  keywords: [
+    'airport transfer',
+    'airport transport',
+    'ground transport metasearch',
+    'airport taxi',
+    'airport train',
+    'TransferMundo',
+  ],
+  openGraph: {
+    title: 'TransferMundo — Compare Airport Transfers, Taxis & Public Transport',
+    description:
+      'Compare every way to reach the city center from top airports. Find the fastest and cheapest trains, buses, private transfers, taxis, and car rentals.',
+    url: 'https://www.transfermundo.com',
+    siteName: 'TransferMundo',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TransferMundo Airport Transport Comparison',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TransferMundo — Compare Airport Transfers, Taxis & Public Transport',
+    description:
+      'Compare every way to reach the city center from top airports. Find the fastest and cheapest trains, buses, private transfers, taxis, and car rentals.',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({
