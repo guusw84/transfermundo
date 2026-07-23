@@ -11,6 +11,7 @@ import EasyTerraWidget from '@/app/components/EasyTerraWidget'
 import NavBrand from '@/app/components/NavBrand'
 import LoungePairBanner from '@/app/components/LoungePairBanner'
 import { taxiUrl, rentalCarUrl, buildOutboundUrl } from '@/lib/attribution'
+import { airportPageMeta } from '@/lib/seo'
 
 const airports = getAirports()
 
@@ -24,10 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const airport = airports.find((a) => a.slug === slug)
   if (!airport) return {}
-  return {
-    title: `${airport.name} (${airport.iata}) Transport Guide – TransferMundo`,
-    description: `How to get from ${airport.name} to the city centre. Compare fastest and cheapest transport options: train, bus, metro, taxi and rental car.`,
-  }
+  return airportPageMeta(airport)
 }
 
 
