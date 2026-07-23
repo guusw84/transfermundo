@@ -96,7 +96,7 @@ export default function AirportSearch({ airports }: { airports: AirportItem[] })
           aria-label="Search airports"
           aria-autocomplete="list"
           aria-expanded={showDropdown}
-          className="w-full pl-12 pr-4 py-4 rounded-2xl text-slate-800 text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 placeholder-slate-400"
+          className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white text-slate-900 caret-slate-900 text-base shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 placeholder:text-slate-400 [&:-webkit-autofill]:[-webkit-text-fill-color:theme(colors.slate.900)] [&:-webkit-autofill]:[transition:background-color_9999s_ease]"
         />
       </div>
 
