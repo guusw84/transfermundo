@@ -69,7 +69,8 @@ export default function CostPerPersonGraph({ taxiFare, airportName, iata }: Prop
       <a
         href={taxiUrl(iata)}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
+        referrerPolicy="strict-origin-when-cross-origin"
         className="mt-5 w-full block bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2.5 rounded-md transition text-center"
       >
         Book a taxi →

@@ -201,7 +201,8 @@ export default async function AirportPage({ params }: Props) {
                 <a
                   href={dest.fastest.link}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className={`mt-auto font-semibold text-sm px-4 py-2 rounded-md transition text-center ${
                     dest.fastest.mode === 'Taxi'
                       ? 'bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900'
@@ -225,7 +226,8 @@ export default async function AirportPage({ params }: Props) {
                   <a
                     href={dest.cheapest.link}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                     className="mt-auto bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-semibold text-sm px-4 py-2 rounded-md transition text-center"
                   >
                     Buy tickets →
@@ -245,7 +247,8 @@ export default async function AirportPage({ params }: Props) {
                 <a
                   href={taxiUrl(airport.iata)}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="mt-auto bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-4 py-2 rounded-md transition text-center"
                 >
                   {dest.name ? `Book a taxi to ${dest.name}` : 'Book a taxi'} →
@@ -277,7 +280,8 @@ export default async function AirportPage({ params }: Props) {
                 <a
                   href={rentalCarUrl()}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                 >
                   Book rental car →
@@ -329,7 +333,8 @@ export default async function AirportPage({ params }: Props) {
                   <a
                     href={taxiUrl(airport.iata)}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                     className="bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-amber-900 font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                   >
                     {dest.name ? `Book a taxi to ${dest.name}` : 'Book a taxi'} →
@@ -386,7 +391,8 @@ export default async function AirportPage({ params }: Props) {
                         <a
                           href={buildOutboundUrl(opt.buyTicketsLink, opt.timetableLink)}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                           className="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white text-sm font-semibold px-4 py-2 rounded-md transition text-center"
                         >
                           Buy tickets →
@@ -394,7 +400,8 @@ export default async function AirportPage({ params }: Props) {
                         <a
                           href={opt.timetableLink}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                           className="bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-700 text-sm font-semibold px-4 py-2 rounded-md transition text-center"
                         >
                           Timetable →
@@ -429,7 +436,8 @@ export default async function AirportPage({ params }: Props) {
                   <a
                     href={rentalCarUrl()}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
+                  referrerPolicy="strict-origin-when-cross-origin"
                     className="bg-slate-800 hover:bg-slate-900 active:bg-black text-white font-semibold text-sm px-5 py-2.5 rounded-md transition shrink-0"
                   >
                     Book rental car →

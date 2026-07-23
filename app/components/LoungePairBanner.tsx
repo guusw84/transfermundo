@@ -21,7 +21,8 @@ export default function LoungePairBanner({ iata }: { iata: string }) {
             <a
               href={loungeUrl(iata)}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
+              referrerPolicy="strict-origin-when-cross-origin"
               className="self-start bg-slate-900 hover:bg-slate-700 active:bg-slate-800 text-white font-semibold text-sm px-5 py-2.5 rounded-md transition"
             >
               Browse lounges at {iata} →
