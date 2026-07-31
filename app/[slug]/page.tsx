@@ -319,7 +319,7 @@ export default async function AirportPage({ params }: Props) {
                 label="Google score"
                 value={`${airport.googleScore.toFixed(1)} / 5 (${airport.googleReviews} reviews)`}
               />
-              <InfoItem label="Last update" value={airport.lastUpdate} />
+
             </div>
 
             {airport.goodToKnow && (
