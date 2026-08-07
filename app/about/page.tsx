@@ -117,6 +117,93 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* B2B API data breakdown */}
+        <section aria-labelledby="api-heading">
+          <h2 id="api-heading" className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
+            B2B API data
+          </h2>
+          <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+            Our B2B API tailored for airlines, airports and OTAs provides the following ground transportation content for the top destination(s) near the airport:
+          </p>
+
+          <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-6 md:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+              {/* Left column — transport data points */}
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-3">Key data:</h3>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {[
+                    'Number of nearby destinations',
+                    'Name nearby city & city centre',
+                    'Distance to city centre in km / miles',
+                    'Number of transportation options *',
+                    'Location station/stop at airport',
+                    'Service name',
+                    'Operator',
+                    'Main stations',
+                    'Timetable link',
+                    'Buy tickets link',
+                    'Travel time',
+                    'Frequency',
+                    'One-way adults fare',
+                    'One-way children fare',
+                    'Fastest & Cheapest',
+                    'Taxi — travel time to city centre',
+                    'Taxi fare',
+                    'Taxi stand location(s)',
+                    'Car rental — location of car rental companies',
+                    'Car rental — price per day in EUR / GBP / USD',
+                    'Car rental popular — yes or no',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-xs text-slate-400 leading-relaxed">
+                  * Number of transportation options to nearby city (maximum&nbsp;3) can be 1&nbsp;(only taxi) to maximum 4&nbsp;(taxi&nbsp;+&nbsp;3 transportation options)
+                </p>
+              </div>
+
+              {/* Right column — extras */}
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-3">Extras:</h3>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {[
+                    'IATA airport code',
+                    'ICAO airport code',
+                    'Country',
+                    'Continent',
+                    'Address',
+                    'Location relative to the nearest city',
+                    'Also known as',
+                    'Number of terminals',
+                    'Number of passengers',
+                    'Airport operator',
+                    'Good to know',
+                    'Money-saving tip',
+                    'App public transport tickets',
+                    'Google airport score',
+                    'Number of reviews',
+                    'Last update',
+                    'Customer requests',
+                  ].map((item, i, arr) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${i === arr.length - 1 ? 'bg-slate-300' : 'bg-emerald-400'}`} />
+                      <span className={i === arr.length - 1 ? 'text-slate-400 italic' : ''}>
+                        {i === arr.length - 1 ? `(${item})` : item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* Data verification & quality */}
         <section aria-labelledby="quality-heading">
           <h2 id="quality-heading" className="text-2xl font-bold tracking-tight text-slate-900 mb-4">
