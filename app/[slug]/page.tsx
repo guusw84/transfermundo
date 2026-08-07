@@ -14,6 +14,7 @@ import TaxiCard from '@/app/components/TaxiCard'
 import TransportOptionCard from '@/app/components/TransportOptionCard'
 import { taxiUrl } from '@/lib/attribution'
 import { airportPageMeta } from '@/lib/seo'
+import Footer from '@/app/components/Footer'
 
 const airports = getAirports()
 
@@ -345,10 +346,7 @@ export default async function AirportPage({ params }: Props) {
 
       <LoungePairBanner iata={airport.iata} />
 
-      <footer className="bg-slate-900 text-slate-400 text-center py-8 mt-6 text-sm border-t border-slate-800">
-        <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p suppressHydrationWarning>© {new Date().getFullYear()} · Choose your airport transfer!</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

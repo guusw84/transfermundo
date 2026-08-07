@@ -9,6 +9,15 @@ export function homePageMeta() {
   }
 }
 
+export function aboutPageMeta() {
+  return {
+    title: 'About TransferMundo — Our Data & Mission',
+    description:
+      'Learn how TransferMundo curates airport ground transport data across European airports — trains, buses, taxis, and booking partner integrations — to help travellers compare options quickly.',
+    alternates: { canonical: `${SITE_URL}/about` },
+  }
+}
+
 export function airportPageMeta(airport: { name: string; iata: string; slug: string }) {
   return {
     title: `${airport.name} (${airport.iata}) Transport Guide – TransferMundo`,

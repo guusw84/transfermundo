@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import AirportCardGrid from '@/app/components/AirportCardGrid'
+import Footer from '@/app/components/Footer'
 import NavBrand from '@/app/components/NavBrand'
 import PartnerHero from '@/app/components/PartnerHero'
 import { getAirports } from '@/lib/airports'
@@ -56,11 +57,7 @@ export default function HomePage() {
         </Suspense>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-auto bg-slate-800 text-slate-400 text-center py-8 text-sm">
-        <p className="font-semibold text-white mb-1">TransferMundo</p>
-        <p suppressHydrationWarning>© {new Date().getFullYear()} · Choose your airport transfer!</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
