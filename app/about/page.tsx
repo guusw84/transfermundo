@@ -26,7 +26,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 py-12 md:py-16">
           <p className="text-slate-400 text-xs font-medium mb-2 uppercase tracking-widest">About Us</p>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-            Simplifying airport ground transport
+            Simplifying airport ground transportation
           </h1>
           <p className="text-slate-300 mt-3 max-w-2xl leading-relaxed">
             TransferMundo curates verified transport data for European airports so travellers can make an informed choice — fast — without juggling multiple websites.
