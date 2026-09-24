@@ -29,7 +29,7 @@ export default function EasyTerraWidget({ iata }: { iata: string }) {
   }, [iata, containerId])
 
   return (
-    <div className="w-full bg-white rounded-2xl border border-slate-200 overflow-hidden mb-6 p-4 [&_iframe]:w-full [&_iframe]:max-w-full [&_div]:max-w-full">
+    <div className="w-full bg-white rounded-2xl border border-slate-200 mb-6 p-4 [&_iframe]:w-full [&_iframe]:max-w-full [&_div]:max-w-full">
       <div id={containerId} />
     </div>
   )
